@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5e018a35e3e8346ab05a75d9fc8539, type: 3}
   m_Name: WarriorPreset
   m_EditorClassIdentifier: 
-  maxHp: 0
-  maxDefence: 0
-  maxSpeed: 0
+  maxHp: 5
+  maxDefence: 2
+  maxSpeed: 2.5

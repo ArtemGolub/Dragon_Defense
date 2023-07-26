@@ -6,8 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public abstract class AEnemy : MonoBehaviour, IEnemy
 {
-    [SerializeField]
-    private SEnemy preset;
+    public SEnemy preset;
     public SEnemy Preset
     {
         get { return preset; }
@@ -28,7 +27,7 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
 
     
     
-    protected void UnitInit()
+    public void UnitInit()
     {
         MaxHp = Preset.maxHp;
         CurHp = MaxHp;
@@ -88,6 +87,11 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
         yield return new WaitForSeconds(time);
         CurSpeed = MaxSpeed;
         _agent.speed = CurSpeed;
+    }
+
+    public void Death()
+    {
+        //ObjectPoolingEnemyFactory.Instance.ReturnToPool(this);
     }
     
 }

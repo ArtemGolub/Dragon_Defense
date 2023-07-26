@@ -13,4 +13,6 @@ public interface IEnemy
     
     
     void SetMoveStrategy(IMoveStrategy strategy);
+
+    void UnitInit();
 }
