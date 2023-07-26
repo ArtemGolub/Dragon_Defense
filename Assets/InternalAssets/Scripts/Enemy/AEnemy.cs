@@ -11,6 +11,12 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
     public float CurSpeed { get; private set; }
     public float MaxSpeed { get; private set; }
     
+    private IMoveStrategy moveStrategy;
+    public void SetMoveStrategy(IMoveStrategy strategy)
+    {
+        moveStrategy = strategy;
+    }
+    
     protected void UnitInit()
     {
         MaxHp = Preset.maxHp;

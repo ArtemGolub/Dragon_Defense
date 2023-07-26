@@ -10,4 +10,7 @@ public interface IEnemy
 
     float CurSpeed { get; }
     float MaxSpeed { get; }
+    
+    
+    void SetMoveStrategy(IMoveStrategy strategy);
 }
