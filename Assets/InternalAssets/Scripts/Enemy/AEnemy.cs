@@ -1,9 +1,19 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public abstract class AEnemy : MonoBehaviour, IEnemy
 {
-    public SEnemy Preset { get; set; }
+    [SerializeField]
+    private SEnemy preset;
+    public SEnemy Preset
+    {
+        get { return preset; }
+        set { preset = value; }
+    }
+    
     public float CurHp { get; private set; }
     public float MaxHp { get; private set; }
     public float CurDefence { get; private set; }
@@ -12,10 +22,11 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
     public float MaxSpeed { get; private set; }
     
     private IMoveStrategy moveStrategy;
-    public void SetMoveStrategy(IMoveStrategy strategy)
-    {
-        moveStrategy = strategy;
-    }
+
+    private NavMeshAgent _agent;
+    protected List<Transform> wayPoints;
+
+    
     
     protected void UnitInit()
     {
@@ -27,13 +38,29 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
 
         MaxSpeed = Preset.maxSpeed;
         CurSpeed = MaxSpeed;
-    }
 
+        wayPoints = WayPointsManager.Instance.allWaypoints;
+        _agent = GetComponent<NavMeshAgent>();
+
+        _agent.speed = CurSpeed;
+        
+        transform.position = WayPointsManager.Instance.spawnPoint.transform.position;
+    }
+    
+    public void SetMoveStrategy(IMoveStrategy strategy)
+    {
+        moveStrategy = strategy;
+    }
+    public void Move()
+    {
+        if (moveStrategy != null)
+            moveStrategy.Move(wayPoints, _agent);
+    }
+    
     public void ReciveDamage(float amount)
     {
         CurHp -= amount - (amount / 100 * CurDefence);
     }
-
     
     public void LowerDefence(float percent, float time)
     {
@@ -57,8 +84,10 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
     private IEnumerator LowerSpeed(float loweredSpeed, float time)
     {
         CurSpeed = loweredSpeed;
+        _agent.speed = CurSpeed;
         yield return new WaitForSeconds(time);
         CurSpeed = MaxSpeed;
+        _agent.speed = CurSpeed;
     }
     
 }
