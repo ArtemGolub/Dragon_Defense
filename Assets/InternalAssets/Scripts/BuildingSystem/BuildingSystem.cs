@@ -29,6 +29,7 @@ public class BuildingSystem : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("Im instance");
         Instance = this;
         _grid = gridLayout.gameObject.GetComponent<Grid>();
     }
@@ -45,30 +46,24 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
-        if (!objectToPlace)
-        {
-            _grid.enabled = false;
-            _grid.transform.GetChild(0).GetComponent<TilemapRenderer>().enabled = false;
-            _grid.transform.GetChild(1).GetComponent<TilemapRenderer>().enabled = false;
-            return;
-        }
-        else
-        {
-            _grid.enabled = true;
-//            confirmCanvas.transform.LookAt(confirmCanvas.transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
-            _grid.transform.GetChild(0).GetComponent<TilemapRenderer>().enabled = true;
-            _grid.transform.GetChild(1).GetComponent<TilemapRenderer>().enabled = true;
-        }
-        
+        // if (!objectToPlace)
+        // {
+        //     _grid.enabled = false;
+        //     _grid.transform.GetChild(0).GetComponent<TilemapRenderer>().enabled = false;
+        //     _grid.transform.GetChild(1).GetComponent<TilemapRenderer>().enabled = false;
+        //     return;
+        // }
+        // else
+        // {
+        if (!objectToPlace) return;
+            // _grid.enabled = true;
+            // _grid.transform.GetChild(0).GetComponent<TilemapRenderer>().enabled = true;
+            // _grid.transform.GetChild(1).GetComponent<TilemapRenderer>().enabled = true;
+       // }
         
         if (!objectToPlace.Placed)
         {
             FollowBuilding();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-           // objectToPlace.Rotate();
         }
     }
     
@@ -107,8 +102,12 @@ public class BuildingSystem : MonoBehaviour
     public static Vector3 GetMosueWorldPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+       // Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red); // Draw a red ray from the camera
+
         if (Physics.Raycast(ray, out RaycastHit raycastHit))
         {
+            Debug.DrawRay(ray.origin, ray.direction * raycastHit.distance, Color.green); // Draw a green ray to the hit point
             return raycastHit.point;
         }
         else
@@ -178,16 +177,9 @@ public class BuildingSystem : MonoBehaviour
 
         objectToPlace = obj.GetComponent<PlaceableObject>();
         obj.AddComponent<ObjectDrag>();
-
-        
-       // SetupUI();
         FollowBuilding();
     }
-
-
     
-
-
 
     public bool CanBePlaced(BoundsInt area)
     {

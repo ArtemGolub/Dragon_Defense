@@ -9,6 +9,7 @@ public class ObjectDrag : MonoBehaviour
     private void OnMouseDown()
     {
         offSet = transform.position - BuildingSystem.GetMosueWorldPosition();
+        
     }
 
     private void OnMouseDrag()
@@ -19,6 +20,9 @@ public class ObjectDrag : MonoBehaviour
 
     private void OnMouseUp()
     {
-        BuildingSystem.Instance.TryPlaceBuilding(false);
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            BuildingSystem.Instance.TryPlaceBuilding(false);
+        }
     }
 }

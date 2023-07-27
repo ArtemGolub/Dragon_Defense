@@ -48,7 +48,6 @@ public class PlaceableObject : MonoBehaviour
     {
         GetColliderPositionLocal();
         CalculateSizeInCells();
-
         changeModelPosition();
     }
 
