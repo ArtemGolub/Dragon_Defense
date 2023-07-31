@@ -50,7 +50,8 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
     {
         moveStrategy = strategy;
     }
-    public void Move()
+
+    protected void Move()
     {
         if (moveStrategy != null)
             moveStrategy.Move(wayPoints, _agent);
@@ -59,6 +60,10 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
     public void ReciveDamage(float amount)
     {
         CurHp -= amount - (amount / 100 * CurDefence);
+        if (CurHp <= 0)
+        {
+            Death();
+        }
     }
     
     public void LowerDefence(float percent, float time)
@@ -89,9 +94,9 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
         _agent.speed = CurSpeed;
     }
 
-    public void Death()
+    private void Death()
     {
-        //ObjectPoolingEnemyFactory.Instance.ReturnToPool(this);
+        Destroy(this.gameObject);
     }
     
 }
