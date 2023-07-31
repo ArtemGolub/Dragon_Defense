@@ -15,14 +15,11 @@ public class ObjectDrag : MonoBehaviour
     private void OnMouseDrag()
     {
         Vector3 pos = BuildingSystem.GetMosueWorldPosition() + offSet;
-        transform.position = BuildingSystem.Instance.SnapCoordinateToGrid(pos);
+        transform.position = BuildingSystem.current.SnapCoordinateToGrid(pos);
     }
-
+    
     private void OnMouseUp()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            BuildingSystem.Instance.TryPlaceBuilding(false);
-        }
+        BuildingSystem.current.TryPlaceBuilding(false);
     }
 }

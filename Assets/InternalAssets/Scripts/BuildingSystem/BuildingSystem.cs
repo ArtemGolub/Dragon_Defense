@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class BuildingSystem : MonoBehaviour
 {
-    public static BuildingSystem Instance;
+    public static BuildingSystem current;
     
     [Header("System settings")] public GridLayout gridLayout;
     [SerializeField] private Tilemap MainTileMap;
@@ -19,7 +19,7 @@ public class BuildingSystem : MonoBehaviour
     [HideInInspector]public PlaceableObject objectToPlace;
     private static Dictionary<TileType, TileBase> TileBases = new Dictionary<TileType, TileBase>();
     private Vector3 prevPos;
-    private BoundsInt prevArea;
+    private BoundsInt prevArea; 
     private BoundsInt prevBuildingArea = new BoundsInt(); // initialize to an empty area
     private TileBase[] prevTileArray;
     private GameObject confirmCanvas;
@@ -30,7 +30,7 @@ public class BuildingSystem : MonoBehaviour
     private void Awake()
     {
         Debug.Log("Im instance");
-        Instance = this;
+        current = this;
         _grid = gridLayout.gameObject.GetComponent<Grid>();
     }
 
@@ -103,7 +103,7 @@ public class BuildingSystem : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-       // Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red); // Draw a red ray from the camera
+        Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red); // Draw a red ray from the camera
 
         if (Physics.Raycast(ray, out RaycastHit raycastHit))
         {
@@ -171,7 +171,7 @@ public class BuildingSystem : MonoBehaviour
             );
 
 
-        obj.transform.position -= centerPosition;
+        //obj.transform.position -= centerPosition;
         
         obj.GetComponent<PlaceableObject>().CalculatePositions();
 

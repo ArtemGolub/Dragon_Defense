@@ -8,7 +8,7 @@ public class TestInput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            BuildingSystem.Instance.InitializeWithObject(prefab);
+            BuildingSystem.current.InitializeWithObject(prefab);
         }
     }
 }

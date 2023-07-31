@@ -30,7 +30,7 @@ public class PlaceableObject : MonoBehaviour
         {
             Vector3 worldPose = transform.TransformPoint(Vertices[i]);
 
-            vertices[i] = BuildingSystem.Instance.gridLayout.WorldToCell(worldPose);
+            vertices[i] = BuildingSystem.current.gridLayout.WorldToCell(worldPose);
         }
 
         Size = new Vector3Int(Math.Abs((vertices[0] - vertices[1]).x),
@@ -73,11 +73,11 @@ public class PlaceableObject : MonoBehaviour
 
     public bool CanBePlaced()
     {
-        Vector3Int positionInt = BuildingSystem.Instance.gridLayout.LocalToCell(transform.position);
+        Vector3Int positionInt = BuildingSystem.current.gridLayout.LocalToCell(transform.position);
         BoundsInt areaTemp = area;
         areaTemp.position = positionInt;
 
-        if (BuildingSystem.Instance.CanBePlaced(areaTemp))
+        if (BuildingSystem.current.CanBePlaced(areaTemp))
         {
             return true;
         }
@@ -89,7 +89,7 @@ public class PlaceableObject : MonoBehaviour
     {
         var model = transform.GetChild(0);
         
-        var cellSize = BuildingSystem.Instance.gridLayout.cellSize;
+        var cellSize = BuildingSystem.current.gridLayout.cellSize;
         Vector3 centerPosition = new Vector3(
             (area.size.x - 1) * cellSize.x * 0.5f + transform.position.x,
             (area.size.z - 1) * cellSize.z * 0.5f + transform.position.y,
