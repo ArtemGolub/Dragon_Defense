@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class ATower : MonoBehaviour, ITower
@@ -11,9 +12,14 @@ public abstract class ATower : MonoBehaviour, ITower
     public float AttackSpeed { get; set; }
     public float AttackRange { get; set; }
 
-
-
-    public abstract void Attack(Transform target);
+    public Transform Target;
+    public float FireCountdown;
+    public GameObject BulletPrefab;
+    public Transform FirePoint;
+    
+    
+    
+    public abstract void Attack();
 
     protected void TowerInit()
     {
@@ -23,6 +29,8 @@ public abstract class ATower : MonoBehaviour, ITower
         ArmorReduction = preset.ArmorReduction;
         AttackSpeed = preset.AttackSpeed;
         AttackRange = preset.AttackRange;
+
+        
     }
 
     private void SetAttackStrategy(AttackType attackType)
@@ -31,5 +39,24 @@ public abstract class ATower : MonoBehaviour, ITower
     }
   
     
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(transform.position, AttackRange);
+    }
     
+    public void UpdateTarget()
+    {
+       InvokeRepeating("Method", 0, 0.5f);
+    }
+
+    public void StopUpdateTarget()
+    {
+        CancelInvoke("Method");
+    }
+
+    private void Method()
+    {
+        attackStrategy.UpdateTarget("Enemy", AttackRange, transform);
+    }
 }

@@ -2,5 +2,9 @@ using UnityEngine;
 
 public interface IAttackStrategy
 {
-    void Attack(Transform target, ATower tower);
+
+
+    void UpdateTarget(string EnemyTag, float AttackRange, Transform tower);
+
+
 }
