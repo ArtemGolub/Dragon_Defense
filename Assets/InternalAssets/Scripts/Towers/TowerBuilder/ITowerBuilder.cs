@@ -9,5 +9,5 @@ public interface ITowerBuilder
     void SetAttackSpeed(float attackSpeed);
     void SetAttackRange(float attackRange);
     void SetVisualDesign(GameObject model, Material texture);
-    ATower GetTower();
+    ITower GetTower();
 }

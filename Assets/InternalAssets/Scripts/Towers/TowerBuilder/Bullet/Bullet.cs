@@ -15,33 +15,31 @@ public class Bullet : MonoBehaviour, IBullet
 
     private void Update()
     {
+        MoveBullet();
+    }
+
+    public void MoveBullet()
+    {
         if (target == null)
         {
             Destroy(gameObject);
             return;
         }
-            
         Vector3 dir = new Vector3(target.position.x, target.position.y, target.position.z) - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
-        LookAtTarget();
-            
+        
+        TargetLook.LookAtTarget(this.transform, target);
+
         if (dir.magnitude <= distanceThisFrame)
         {
             HitTarget();
             return;
         }
-            
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
     
-    private void LookAtTarget()
-    {
-        var lookPos =  target.position - transform.position;
-        var rotation = Quaternion.LookRotation(lookPos);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 1000);
-    }
     
-    void HitTarget()
+    public void HitTarget()
     {
         target.GetComponent<AEnemy>().ReciveDamage(Damage);
         Destroy(gameObject);

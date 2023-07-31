@@ -50,7 +50,8 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
     {
         moveStrategy = strategy;
     }
-    public void Move()
+
+    protected void Move()
     {
         if (moveStrategy != null)
             moveStrategy.Move(wayPoints, _agent);

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AttackStrategyFactory
 {
-    public static IAttackStrategy CreateStrategy(AttackType attackType)
+    public static IAttackStrategy CreateStrategy(AttackType attackType, AAttackTower tower)
     {
         switch (attackType)
         {
             case AttackType.Normal:
-                return new SingleShotAttackStrategy();
+                return new SingleShotAttackStrategy(tower);
             case AttackType.MultyShot:
                 return null;
             case AttackType.AOE:

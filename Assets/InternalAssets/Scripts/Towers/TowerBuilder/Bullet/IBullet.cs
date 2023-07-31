@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface IBullet
 {
+    void MoveBullet();
     void Seek(Transform target);
+    void HitTarget();
 }
