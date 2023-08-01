@@ -2,21 +2,26 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildingView : MonoBehaviour
+public class BuildingView : MonoBehaviour, IBuildingView
 {
-    public Button button;
-    private BuildingController buildingController;
+    public Button buttonTower1;
+    public Button buttonTower2;
+    
+    public TextMeshProUGUI buttonText1;
+    public TextMeshProUGUI buttonText2;
 
-    public void Initialize(BuildingController controller, GameObject prefab)
+    private BuildingController prefabController;
+
+    public void Initialize(BuildingController controller)
     {
-        buildingController = controller;
-        button.onClick.AddListener(OnClick);
-        button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Building 1";
-        // Настройте отображение кнопки в соответствии с префабом здания, например, установите текст кнопки или изображение.
+        prefabController = controller;
+        buttonTower1.onClick.AddListener(prefabController.OnButton1Click);
+        buttonTower2.onClick.AddListener(prefabController.OnButton2Click);
     }
-
-    private void OnClick()
+    
+    public void UpdateButtonText(string text1, string text2)
     {
-        buildingController.OnBuildingSelected();
+        buttonText1.text = text1;
+        buttonText2.text = text2;
     }
 }

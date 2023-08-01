@@ -171,9 +171,11 @@ public class BuildingSystem : MonoBehaviour
             );
 
 
-        //obj.transform.position -= centerPosition;
+        obj.transform.position -= centerPosition;
         
         obj.GetComponent<PlaceableObject>().CalculatePositions();
+        
+        
 
         objectToPlace = obj.GetComponent<PlaceableObject>();
         obj.AddComponent<ObjectDrag>();
