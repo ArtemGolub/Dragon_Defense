@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee27be48da58b743a5e8bed1c0f67cd, type: 3}
   m_Name: New Tower
   m_EditorClassIdentifier: 
+  TowerName: New Tower
   TowerType: 0
   model: {fileID: 8141641501409240629, guid: 9cb489d00bdf5574296a49c031d52506, type: 3}

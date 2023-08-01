@@ -1,7 +1,8 @@
 public class AtackTower : AAttackTower
 {
-    private void Awake()
+    public override void OnBuild()
     {
+        InitTower();
         InitAttackTower();
     }
 }

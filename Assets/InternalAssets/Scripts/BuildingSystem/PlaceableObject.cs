@@ -68,7 +68,7 @@ public class PlaceableObject : MonoBehaviour
     
     private void OnPlaceEvents()
     {
-        // On build
+        GetComponent<ITower>().OnBuild();
     }
 
     public bool CanBePlaced()

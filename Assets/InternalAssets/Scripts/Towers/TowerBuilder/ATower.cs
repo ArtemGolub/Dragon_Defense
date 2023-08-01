@@ -14,4 +14,5 @@ public abstract class ATower : MonoBehaviour, ITower
         model = preset.model;
     }
 
+    public abstract void OnBuild();
 }
