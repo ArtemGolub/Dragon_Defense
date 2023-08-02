@@ -13,10 +13,8 @@ public class GroundMoveSrategy : IMoveStrategy
         waypoints = Waypoints;
     }
     
-    // TODO Continue with ENEMYMOVE
     public void Move(List<Transform> wayPoints, AIPath agent)
     {
-        Debug.Log(agent.reachedDestination);
         if (agent.reachedDestination)
         {
             currentWaypointIndex++;

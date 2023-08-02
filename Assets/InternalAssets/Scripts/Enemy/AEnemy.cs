@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
 
-// TODO RemoveNavMeshAgent
 public abstract class AEnemy : MonoBehaviour, IEnemy
 {
     public SEnemy preset;
