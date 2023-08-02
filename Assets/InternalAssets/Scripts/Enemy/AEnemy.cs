@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Pathfinding;
 using UnityEngine;
-using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
+// TODO RemoveNavMeshAgent
 public abstract class AEnemy : MonoBehaviour, IEnemy
 {
     public SEnemy preset;
@@ -22,10 +22,9 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
     
     private IMoveStrategy moveStrategy;
 
-    private NavMeshAgent _agent;
-    protected List<Transform> wayPoints;
+    public List<Transform> wayPoints;
 
-    
+    private AIPath _aiPath;
     
     public void UnitInit()
     {
@@ -39,9 +38,10 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
         CurSpeed = MaxSpeed;
 
         wayPoints = WayPointsManager.Instance.allWaypoints;
-        _agent = GetComponent<NavMeshAgent>();
 
-        _agent.speed = CurSpeed;
+
+        _aiPath = GetComponent<AIPath>();
+        _aiPath.maxSpeed = CurSpeed;
         
         transform.position = WayPointsManager.Instance.spawnPoint.transform.position;
     }
@@ -54,7 +54,7 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
     protected void Move()
     {
         if (moveStrategy != null)
-            moveStrategy.Move(wayPoints, _agent);
+            moveStrategy.Move(wayPoints, _aiPath);
     }
     
     public void ReciveDamage(float amount)
@@ -88,10 +88,10 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
     private IEnumerator LowerSpeed(float loweredSpeed, float time)
     {
         CurSpeed = loweredSpeed;
-        _agent.speed = CurSpeed;
+        _aiPath.maxSpeed = CurSpeed;
         yield return new WaitForSeconds(time);
         CurSpeed = MaxSpeed;
-        _agent.speed = CurSpeed;
+        _aiPath.maxSpeed = CurSpeed;
     }
 
     private void Death()

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
+using Pathfinding;
 using UnityEngine;
-using UnityEngine.AI;
 
 public interface IMoveStrategy
 {
-    void Move(List<Transform> wayPoints, NavMeshAgent agent);
+    void Move(List<Transform> wayPoints, AIPath agent);
 }

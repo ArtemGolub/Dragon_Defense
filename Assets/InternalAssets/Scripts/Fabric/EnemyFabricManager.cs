@@ -13,5 +13,6 @@ public class EnemyFabricManager
     {
         IEnemy unit = fabric.CreateObject(settings, spawnPoint, container);
         unit.UnitInit();
+        
     }
 }

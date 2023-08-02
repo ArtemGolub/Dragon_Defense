@@ -1,31 +1,27 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using Pathfinding;
 
 public class GroundMoveSrategy : IMoveStrategy
 {
     private List<Transform> waypoints;
     private int currentWaypointIndex = 0;
+    private Transform targetPose;
 
     public GroundMoveSrategy(List<Transform> Waypoints)
     {
         waypoints = Waypoints;
     }
     
-    public void Move(List<Transform> wayPoints, NavMeshAgent agent)
+    // TODO Continue with ENEMYMOVE
+    public void Move(List<Transform> wayPoints, AIPath agent)
     {
-        if (currentWaypointIndex >= wayPoints.Count)
-        {
-            agent.isStopped = true;
-            return;
-        }
-
-        agent.SetDestination(wayPoints[currentWaypointIndex].transform.position);
-
-        if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
+        Debug.Log(agent.reachedDestination);
+        if (agent.reachedDestination)
         {
             currentWaypointIndex++;
-            Move(wayPoints, agent);
         }
+        targetPose = agent.GetComponent<AEnemy>().wayPoints[currentWaypointIndex];
+        agent.destination = targetPose.position;
     }
 }
