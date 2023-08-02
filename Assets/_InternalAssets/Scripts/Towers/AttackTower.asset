@@ -15,6 +15,6 @@ MonoBehaviour:
   AttackType: 0
   Damage: 5
   AttackSpeed: 100
-  AttackRange: 5
+  AttackRange: 7
   BulletPrefab: {fileID: 4522957673895848246, guid: 2732fbf203cf23742b88ece773961766,
     type: 3}

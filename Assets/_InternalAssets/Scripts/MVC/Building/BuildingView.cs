@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// TODO make buttons and text into Array
+// TODO hide UI on building active
 public class BuildingView : MonoBehaviour, IBuildingView
 {
     public Button buttonTower1;

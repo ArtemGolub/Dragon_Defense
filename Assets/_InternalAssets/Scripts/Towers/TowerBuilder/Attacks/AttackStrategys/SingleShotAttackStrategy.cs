@@ -13,6 +13,7 @@ public class SingleShotAttackStrategy : IAttackStrategy, ISingleShotAttack
     
     public void UpdateTarget(string enemyTag, float AttackRange)
     {
+       
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
 
         float shortestDistance = Mathf.Infinity;
@@ -28,7 +29,7 @@ public class SingleShotAttackStrategy : IAttackStrategy, ISingleShotAttack
                 nearestEnemy = enemy;
             }
         }
-
+      
         if (nearestEnemy != null && shortestDistance <= AttackRange)
         {
             Target = nearestEnemy.transform;
@@ -37,9 +38,10 @@ public class SingleShotAttackStrategy : IAttackStrategy, ISingleShotAttack
         {
             Target = null;
         }
-        Shooting();
+       
     }
-
+    
+    // TODO Need to Update
     public void Shooting()
     {
         if (Target == null) return;
@@ -63,6 +65,4 @@ public class SingleShotAttackStrategy : IAttackStrategy, ISingleShotAttack
             bullet.Seek(Target);
         }
     }
-    
-    
 }

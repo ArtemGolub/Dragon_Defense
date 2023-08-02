@@ -45,6 +45,7 @@ public class BuildingController : MonoBehaviour
     private void InstantiateSelectedPrefab()
     {
         if (prefabModel.BuildingPrefab == null) return;
+        if(BuildingSystem.current.objectToPlace != null) return;
         BuildingSystem.current.InitializeWithObject(prefabModel.BuildingPrefab);
     }
 }

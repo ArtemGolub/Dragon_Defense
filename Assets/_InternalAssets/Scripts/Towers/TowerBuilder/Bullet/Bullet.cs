@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour, IBullet
     private Transform target;
     public float speed;
     public float Damage;
+
+    public float offSet;
     
     public void Seek(Transform Target)
     {
@@ -30,7 +32,7 @@ public class Bullet : MonoBehaviour, IBullet
         
         TargetLook.LookAtTarget(this.transform, target);
 
-        if (dir.magnitude <= distanceThisFrame)
+        if (dir.magnitude <= distanceThisFrame + offSet)
         {
             HitTarget();
             return;

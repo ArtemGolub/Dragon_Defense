@@ -15,8 +15,6 @@ public abstract class AAttackTower : ATower, IAttackTower
 
     public void InitAttackTower()
     {
-        InitTower();
-        
         AttackType = AttackTowerPreset.AttackType;
         SetAttackStrategy(AttackType);
         Damage = AttackTowerPreset.Damage;
