@@ -9,7 +9,7 @@ public class AttackStrategyFactory
             case AttackType.MultyShot:
                 return null;
             case AttackType.AOE:
-                return null;
+                return new AOEAttackStrategy(tower);
             default:
                 return null;
         }

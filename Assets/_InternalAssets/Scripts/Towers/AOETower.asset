@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8dc8391f8954ad2b13f14832236ba0d, type: 3}
-  m_Name: AttackTower
+  m_Name: AOETower
   m_EditorClassIdentifier: 
-  AttackType: 0
-  Damage: 5
-  AttackSpeed: 1
+  AttackType: 2
+  Damage: 10
+  AttackSpeed: 0.5
   AttackRange: 10
   BulletPrefab: {fileID: 4522957673895848246, guid: 2732fbf203cf23742b88ece773961766,
     type: 3}
