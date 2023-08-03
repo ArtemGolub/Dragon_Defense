@@ -2,20 +2,15 @@ using UnityEngine;
 
 public class SingleShotAttackStrategy : IAttackStrategy, ISingleShotAttack
 {
-    public Transform Target { get; set; }
-    
-    private AAttackTower _tower;
-
-    public SingleShotAttackStrategy(AAttackTower tower)
+    private AtackTower _tower;
+    public SingleShotAttackStrategy(AtackTower tower)
     {
         _tower = tower;
     }
     
     public void UpdateTarget(string enemyTag, float AttackRange)
     {
-       
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-
         float shortestDistance = Mathf.Infinity;
 
         GameObject nearestEnemy = null;
@@ -29,40 +24,44 @@ public class SingleShotAttackStrategy : IAttackStrategy, ISingleShotAttack
                 nearestEnemy = enemy;
             }
         }
-      
+        
         if (nearestEnemy != null && shortestDistance <= AttackRange)
         {
-            Target = nearestEnemy.transform;
+            _tower.target = nearestEnemy.transform;
         }
         else
         {
-            Target = null;
+            _tower.target = null;
         }
+
        
     }
     
-    // TODO Need to Update
     public void Shooting()
     {
-        if (Target == null) return;
+      //  Debug.Log(Target);
+        if (_tower.target == null) return;
+        //Debug.Log(_tower.FireCountdown);
         if (_tower.FireCountdown <= 0)
         {
-          
             Shoot();
             _tower.FireCountdown = 1f / _tower.AttackSpeed;
         }
-
+        if (_tower.FireCountdown < 0)
+        {
+            _tower.FireCountdown = 1f / _tower.AttackSpeed;
+        }
         _tower.FireCountdown -= Time.deltaTime;
     }
 
     public void Shoot()
     {
-        if (Target == null) return;
+        if (_tower.target == null) return;
         var bulletGO = _tower.InstantiateBullet();
         IBullet bullet = bulletGO.GetComponent<IBullet>();
         if (bullet != null)
         {
-            bullet.Seek(Target);
+            bullet.Seek(_tower.target);
         }
     }
 }

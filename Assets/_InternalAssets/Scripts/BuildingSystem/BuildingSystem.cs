@@ -29,7 +29,6 @@ public class BuildingSystem : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Im instance");
         current = this;
         _grid = gridLayout.gameObject.GetComponent<Grid>();
     }

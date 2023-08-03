@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8dc8391f8954ad2b13f14832236ba0d, type: 3}
-  m_Name: AttackTower
+  m_Name: AttackTower 1
   m_EditorClassIdentifier: 
-  AttackType: 0
+  AttackType: 1
   Damage: 5
   AttackSpeed: 1
   AttackRange: 25

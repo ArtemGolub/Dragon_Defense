@@ -3,7 +3,7 @@ using UnityEngine;
 public interface IAttackTower
 {
     AttackType AttackType { get; set; }
-    IAttackStrategy attackStrategy { get; set; }
+   // IAttackStrategy attackStrategy { get; set; }
     float Damage { get; set; }
     float AttackSpeed { get; set; }
     float AttackRange { get; set; }
@@ -13,6 +13,6 @@ public interface IAttackTower
     GameObject InstantiateBullet();
 
     void InitAttackTower();
-    void SetAttackStrategy(AttackType attackType);
-    void StartUpdatingTarget();
+   // void SetAttackStrategy(AttackType attackType);
+   // void StartUpdatingTarget();
 }

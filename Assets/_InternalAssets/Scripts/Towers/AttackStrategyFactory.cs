@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class AttackStrategyFactory
 {
-    public static IAttackStrategy CreateStrategy(AttackType attackType, AAttackTower tower)
+    public static IAttackStrategy CreateStrategy(AttackType attackType, AtackTower tower)
     {
         switch (attackType)
         {

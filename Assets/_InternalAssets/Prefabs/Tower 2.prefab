@@ -80,7 +80,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preset: {fileID: 11400000, guid: 3a99e31d915a8be43a610606c8f272e5, type: 2}
-  AttackTowerPreset: {fileID: 11400000, guid: 93f2c2ba22d372d4db6fba720ece2141, type: 2}
+  builded: 0
+  AttackTowerPreset: {fileID: 11400000, guid: c6ca692d881687249b3c1723d6d904d3, type: 2}
+  target: {fileID: 0}
   FirePoint: {fileID: 593401192}
 --- !u!65 &1090082534791611226
 BoxCollider:
