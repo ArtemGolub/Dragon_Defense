@@ -19,6 +19,10 @@ public class AtackTower : AAttackTower
     private void FixedUpdate()
     {
         if(!builded) return;
+        if (target != null)
+        {
+            TargetLook.LookAtTargetOnlyY(transform.GetChild(0), target);
+        }
         attackStrategy.Shooting();
     }
     

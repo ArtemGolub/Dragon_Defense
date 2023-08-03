@@ -44,6 +44,7 @@ public class SingleShotAttackStrategy : IAttackStrategy, ISingleShotAttack
         //Debug.Log(_tower.FireCountdown);
         if (_tower.FireCountdown <= 0)
         {
+            _tower.GetComponentInChildren<Animator>().SetBool("isAttack", true);
             Shoot();
             _tower.FireCountdown = 1f / _tower.AttackSpeed;
         }

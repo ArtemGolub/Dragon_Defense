@@ -43,6 +43,7 @@ public class AOEAttackStrategy : IAttackStrategy, IAOEShotAttack
         if (_tower.target == null) return;
         if (_tower.FireCountdown <= 0)
         {
+            _tower.GetComponentInChildren<Animator>().SetBool("isAttack", true);
             Shoot();
             _tower.FireCountdown = 1f / _tower.AttackSpeed;
         }
