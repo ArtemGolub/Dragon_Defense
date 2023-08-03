@@ -1,17 +1,22 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildingController : MonoBehaviour
 {
-
+    public static BuildingController intstance;
     
     private BuildingModel prefabModel;
     private IBuildingView prefabView;
 
+    public List<GameObject> Towers;
+    
     public GameObject Tower1;
     public GameObject Tower2;
 
     private void Start()
     {
+        intstance = this;
+        
         prefabModel = new BuildingModel();
         prefabView = GetComponent<IBuildingView>();
         prefabView.Initialize(this);
@@ -33,13 +38,20 @@ public class BuildingController : MonoBehaviour
     public void OnButton1Click()
     {
         prefabModel.BuildingPrefab = Tower1;
+        prefabView.HideUI();
         InstantiateSelectedPrefab();
     }
 
     public void OnButton2Click()
     {
         prefabModel.BuildingPrefab = Tower2;
+        prefabView.HideUI();
         InstantiateSelectedPrefab();
+    }
+
+    public void ShowUI()
+    {
+        prefabView.ShowUI();
     }
 
     private void InstantiateSelectedPrefab()

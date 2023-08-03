@@ -68,6 +68,7 @@ public class PlaceableObject : MonoBehaviour
     
     private void OnPlaceEvents()
     {
+        BuildingController.intstance.ShowUI();
         GetComponent<ITower>().OnBuild();
     }
 
