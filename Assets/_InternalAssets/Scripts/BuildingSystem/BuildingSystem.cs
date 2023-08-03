@@ -45,20 +45,19 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
-        // if (!objectToPlace)
-        // {
-        //     _grid.enabled = false;
-        //     _grid.transform.GetChild(0).GetComponent<TilemapRenderer>().enabled = false;
-        //     _grid.transform.GetChild(1).GetComponent<TilemapRenderer>().enabled = false;
-        //     return;
-        // }
-        // else
-        // {
-        if (!objectToPlace) return;
-            // _grid.enabled = true;
-            // _grid.transform.GetChild(0).GetComponent<TilemapRenderer>().enabled = true;
-            // _grid.transform.GetChild(1).GetComponent<TilemapRenderer>().enabled = true;
-       // }
+        if (!objectToPlace)
+        {
+            _grid.enabled = false;
+            _grid.transform.GetChild(0).GetComponent<TilemapRenderer>().enabled = false;
+            _grid.transform.GetChild(1).GetComponent<TilemapRenderer>().enabled = false;
+            return;
+        }
+        else
+        {
+            _grid.enabled = true;
+            _grid.transform.GetChild(0).GetComponent<TilemapRenderer>().enabled = true;
+            _grid.transform.GetChild(1).GetComponent<TilemapRenderer>().enabled = true;
+        }
         
         if (!objectToPlace.Placed)
         {

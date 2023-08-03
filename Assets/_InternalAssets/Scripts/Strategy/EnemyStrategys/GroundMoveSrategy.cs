@@ -19,7 +19,17 @@ public class GroundMoveSrategy : IMoveStrategy
         {
             currentWaypointIndex++;
         }
+
+        if (currentWaypointIndex >= wayPoints.Count)
+        {
+            LastPointAchived(agent);
+        }
         targetPose = agent.GetComponent<AEnemy>().wayPoints[currentWaypointIndex];
         agent.destination = targetPose.position;
+    }
+
+    public void LastPointAchived(AIPath agent)
+    {
+        agent.isStopped = true;
     }
 }
