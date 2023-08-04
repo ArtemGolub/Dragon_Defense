@@ -61,7 +61,9 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
         CurHp -= amount - (amount / 100 * CurDefence);
         if (CurHp <= 0)
         {
-            Death();
+            GetComponentInChildren<Animator>().SetBool("isDead", true);
+            _aiPath.isStopped = true;
+            tag = "DeadEnemy";
         }
     }
     
@@ -93,7 +95,7 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
         _aiPath.maxSpeed = CurSpeed;
     }
 
-    private void Death()
+    public void Death()
     {
         Destroy(this.gameObject);
     }
