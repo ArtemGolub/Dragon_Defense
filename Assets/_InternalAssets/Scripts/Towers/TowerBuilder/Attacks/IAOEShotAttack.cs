@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IAOEShotAttack
 {
-    void Shoot();
+    //void Shoot();
 }

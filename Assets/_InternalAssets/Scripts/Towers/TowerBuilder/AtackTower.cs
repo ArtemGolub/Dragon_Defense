@@ -6,7 +6,6 @@ public class AtackTower : AAttackTower
     public Transform target;
     public Transform model;
     public IAttackStrategy attackStrategy;
-    
     public override void OnBuild()
     {
         model = transform.GetChild(0);
@@ -21,7 +20,7 @@ public class AtackTower : AAttackTower
         if(!builded) return;
         if (target != null)
         {
-            TargetLook.LookAtTargetOnlyY(transform.GetChild(0), target);
+            TargetLook.LookAtNewTarget(transform.GetChild(0), target);
         }
         attackStrategy.Shooting();
     }

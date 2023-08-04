@@ -45,9 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05ead222eea1b249957ca7402621232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  damageRadius: 5
-  Damage: 10
+  speed: 1
+  damageRadius: 3
+  Damage: 1
+  parabolaHeight: 1
+  factor: 0.9
+  HeightDependencyDistance: 0.13
+  LowerDependencyDistance: -0.1
+  ease: 3
 --- !u!1001 &2394202726314556301
 PrefabInstance:
   m_ObjectHideFlags: 0

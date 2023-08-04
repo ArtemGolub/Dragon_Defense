@@ -17,7 +17,7 @@ public class AOEAttackStrategy : IAttackStrategy, IAOEShotAttack
         float shortestDistance = Mathf.Infinity;
 
         GameObject nearestEnemy = null;
-        
+    
         foreach (var enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(_tower.model.transform.position, enemy.transform.position);
@@ -27,8 +27,8 @@ public class AOEAttackStrategy : IAttackStrategy, IAOEShotAttack
                 nearestEnemy = enemy;
             }
         }
-        
-        if (nearestEnemy != null && shortestDistance <= AttackRange)
+    
+        if (nearestEnemy != null && shortestDistance <= _tower.AttackRange) // Проверяем на зону атаки
         {
             _tower.target = nearestEnemy.transform;
         }
@@ -44,7 +44,7 @@ public class AOEAttackStrategy : IAttackStrategy, IAOEShotAttack
         if (_tower.FireCountdown <= 0)
         {
             _tower.GetComponentInChildren<Animator>().SetBool("isAttack", true);
-            Shoot();
+           // Shoot();
             _tower.FireCountdown = 1f / _tower.AttackSpeed;
         }
         if (_tower.FireCountdown < 0)

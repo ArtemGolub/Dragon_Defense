@@ -1051,6 +1051,7 @@ MonoBehaviour:
   FirePoint: {fileID: 593401192}
   target: {fileID: 0}
   model: {fileID: 0}
+  rotationSpeed: 1
 --- !u!65 &1090082534791611226
 BoxCollider:
   m_ObjectHideFlags: 0
