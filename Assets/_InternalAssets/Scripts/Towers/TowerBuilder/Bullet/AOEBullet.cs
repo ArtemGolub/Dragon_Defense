@@ -15,6 +15,7 @@ public class AOEBullet : MonoBehaviour, IBullet
     public float factor;
     public float HeightDependencyDistance = 0.01f;
     public float LowerDependencyDistance = -0.1f;
+    public GameObject FXprefab;
 
     public Ease ease;
     private void Start()
@@ -80,6 +81,7 @@ public class AOEBullet : MonoBehaviour, IBullet
 
     public void HitTarget()
     {
+        var a = Instantiate(FXprefab, transform.position, transform.rotation);
         AEnemy targetUnit = Target.GetComponent<AEnemy>();
         if (targetUnit == null) return;
         Collider[] colliders = Physics.OverlapSphere(Target.position, damageRadius);
