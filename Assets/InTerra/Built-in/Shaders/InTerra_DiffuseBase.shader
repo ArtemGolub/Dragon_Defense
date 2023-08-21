@@ -1,4 +1,4 @@
-Shader "Hidden/InTerra/InTerra-Diffuse-Base" {
+﻿Shader "Hidden/InTerra/InTerra-Diffuse-Base" {
     Properties{
         _MainTex("Base (RGB) Smoothness (A)", 2D) = "white" {}
         _TriplanarTex("splat0", 2D) = "white" {}

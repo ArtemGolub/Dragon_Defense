@@ -1,4 +1,4 @@
-Shader "InTerra/Terrain (Standard With Features)" 
+﻿Shader "InTerra/Terrain (Standard With Features)" 
 {
     Properties {
         [HideInInspector] _MainTex ("BaseMap (RGB)", 2D) = "white" {}

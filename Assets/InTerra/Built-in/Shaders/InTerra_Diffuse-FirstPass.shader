@@ -1,4 +1,4 @@
-Shader "InTerra/Diffuse/Terrain (Diffuse With Features)"
+﻿Shader "InTerra/Diffuse/Terrain (Diffuse With Features)"
 {
     Properties{
         [HideInInspector] _MainTex("BaseMap (RGB)", 2D) = "white" {}

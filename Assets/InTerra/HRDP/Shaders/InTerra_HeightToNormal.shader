@@ -1,4 +1,4 @@
-Shader "Hidden/InTerra/CalculateNormal"
+﻿Shader "Hidden/InTerra/CalculateNormal"
 {
     Properties
     {

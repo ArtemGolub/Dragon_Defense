@@ -1,4 +1,4 @@
-Shader "InTerra/Diffuse/Object into Terrain Integration (Diffuse)"
+﻿Shader "InTerra/Diffuse/Object into Terrain Integration (Diffuse)"
 {
     Properties
     {

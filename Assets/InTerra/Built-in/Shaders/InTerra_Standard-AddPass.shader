@@ -1,4 +1,4 @@
-Shader "Hidden/InTerra/InTerra-AddPass" 
+﻿Shader "Hidden/InTerra/InTerra-AddPass" 
 {
     Properties {
         [HideInInspector] _MainTex("BaseMap (RGB)", 2D) = "white" {}
