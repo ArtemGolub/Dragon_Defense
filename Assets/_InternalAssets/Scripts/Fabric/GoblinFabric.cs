@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WarriorFabric : MonoBehaviour, IEnemyFabric
+public class GoblinFabric : MonoBehaviour, IEnemyFabric
 {
     private static int _ID;
     public IEnemy CreateObject(SEnemy settings, Transform spawnPoint, Transform container)
@@ -12,14 +12,14 @@ public class WarriorFabric : MonoBehaviour, IEnemyFabric
         {
             newObject.transform.SetParent(container);
         }
-        Warrior objectComponent;
-        if (!newObject.transform.GetComponent<Warrior>())
+        Goblin objectComponent;
+        if (!newObject.transform.GetComponent<Goblin>())
         {
-            objectComponent = newObject.AddComponent<Warrior>();
+            objectComponent = newObject.AddComponent<Goblin>();
         }
         else
         {
-            objectComponent = newObject.transform.GetComponent<Warrior>();
+            objectComponent = newObject.transform.GetComponent<Goblin>();
         }
         objectComponent.preset = settings;
         return objectComponent;

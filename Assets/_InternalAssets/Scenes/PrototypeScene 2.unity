@@ -1063,7 +1063,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1eb43c21ec71e43b8ed76f62db829f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: 671806e7df9b069499332bc18dad501a, type: 2}
+  settings: {fileID: 0}
+  goblinSettings: {fileID: 11400000, guid: 671806e7df9b069499332bc18dad501a, type: 2}
+  golemSettings: {fileID: 11400000, guid: 6333f194f3e516840bc05a4fa5b37a72, type: 2}
   spawnPoint: {fileID: 756626947}
 --- !u!1 &832575517
 GameObject:

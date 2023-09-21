@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4334954944901253966}
   - component: {fileID: 4334954944901253961}
-  - component: {fileID: 4334954944901253967}
+  - component: {fileID: -1194239837850527208}
   - component: {fileID: -4759809411172987147}
   - component: {fileID: 558563608418435241}
   - component: {fileID: 2892617831421035183}
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20376e38bfef784caf6deb5cb350ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4334954944901253967
+--- !u!114 &-1194239837850527208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,10 +58,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4334954944901253963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 367a8487f3fab4547a3cd207abafb59e, type: 3}
+  m_Script: {fileID: 11500000, guid: bfc4563b9774ce94fa27c3811362db9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preset: {fileID: 11400000, guid: 671806e7df9b069499332bc18dad501a, type: 2}
+  preset: {fileID: 11400000, guid: 6333f194f3e516840bc05a4fa5b37a72, type: 2}
   wayPoints: []
 --- !u!114 &-4759809411172987147
 MonoBehaviour:

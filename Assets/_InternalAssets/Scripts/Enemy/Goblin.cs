@@ -1,6 +1,6 @@
 using System;
 
-public class Warrior : AEnemy
+public class Goblin : AEnemy
 {
     private void Awake()
     {

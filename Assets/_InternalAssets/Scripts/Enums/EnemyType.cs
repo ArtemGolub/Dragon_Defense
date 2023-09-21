@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum EnemyType
 {
-    Warrior,
-    Archer,
+    Goblin,
+    Golem,
     Bat
 }
