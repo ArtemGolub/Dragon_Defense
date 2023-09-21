@@ -7,8 +7,6 @@ public class BuildingController : MonoBehaviour
     
     private BuildingModel prefabModel;
     private IBuildingView prefabView;
-
-    public List<GameObject> Towers;
     
     public GameObject Tower1;
     public GameObject Tower2;
@@ -21,18 +19,13 @@ public class BuildingController : MonoBehaviour
         prefabView = GetComponent<IBuildingView>();
         prefabView.Initialize(this);
         
-       
-        ATower parameters1 = Tower1.GetComponent<ATower>();
-        ATower parameters2 = Tower2.GetComponent<ATower>();
-
-        InitializeView(parameters1.preset.TowerName, parameters2.preset.TowerName);
+        InitializeView();
     }
     
-    private void InitializeView(string prefabName1, string prefabName2)
+    private void InitializeView()
     {
         prefabView = GetComponent<IBuildingView>();
         prefabView.Initialize(this);
-        prefabView.UpdateButtonText(prefabName1, prefabName2);
     }
 
     public void OnButton1Click()

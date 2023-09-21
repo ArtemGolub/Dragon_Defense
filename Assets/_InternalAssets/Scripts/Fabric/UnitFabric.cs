@@ -5,38 +5,40 @@ public class UnitFabric : MonoBehaviour
     private EnemyFabricManager _fabricManager;
     private Transform container;
     
-    [SerializeField] private EnemyType myFabricType;
-    [SerializeField] private float firstSpawnDelay = 1f;
-    [SerializeField] private float repeatRate = 1f;
+  //  [SerializeField] private EnemyType myFabricType;
     [SerializeField] private SEnemy settings;
     [SerializeField] private Transform spawnPoint;
     
-    private void Start()
+    public void SpawnEnemy()
     {
-        CreateContainer();
-        InitFactory();
-        InvokeRepeating("SpawnEnemy", firstSpawnDelay, repeatRate);
+        _fabricManager.CreateAndInitializeEnemy(settings, spawnPoint, container);
     }
-    
-    private void InitFactory()
+
+    public void UpdateFabric(EnemyType myFabricType)
     {
         _fabricManager = new EnemyFabricManager();
         switch (myFabricType)
         {
             case EnemyType.Warrior:
             {
-                IEnemyFabric archerFabric = new WarriorFabric();
-                _fabricManager.SetUnitFabric(archerFabric);
+                IEnemyFabric WarriorFabric = new WarriorFabric();
+                _fabricManager.SetUnitFabric(WarriorFabric);
+                Debug.Log("Warrior");
+                break;
+            }
+            case EnemyType.Archer:
+            {
+                IEnemyFabric WarriorFabric = new WarriorFabric();
+                _fabricManager.SetUnitFabric(WarriorFabric);
+                Debug.Log("Archer");
                 break;
             }
         }
-    }
-    private void SpawnEnemy()
-    {
-        _fabricManager.CreateAndInitializeEnemy(settings, spawnPoint, container);
+
+        CreateContainer(myFabricType);
     }
 
-    private void CreateContainer()
+    private void CreateContainer(EnemyType myFabricType)
     {
         var containerObject = new GameObject();
         container = containerObject.transform;
