@@ -7,14 +7,16 @@ public class EventHandler : MonoBehaviour
         EventManager.instance.RemoveWinPoints.AddListener(OnWinPointsRemoved);
         EventManager.instance.PlayerLose.AddListener(OnPlayerLose);
     }
-    
+
     private void OnWinPointsRemoved(int removedPoints)
     {
         GameManager.instance.CurHealthPoints -= removedPoints;
         if (GameManager.instance.CurHealthPoints <= 0)
         {
             EventManager.instance.OnPlayerLose();
+            HPController.intstance.HideUI();
         }
+
         HPController.intstance.UpdateText(GameManager.instance.CurHealthPoints);
     }
 

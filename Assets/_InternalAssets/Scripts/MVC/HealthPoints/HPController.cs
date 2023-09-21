@@ -24,6 +24,11 @@ public class HPController : MonoBehaviour
         hpView.ShowUI();
     }
 
+    public void HideUI()
+    {
+        hpView.HideUI();
+    }
+
     public void UpdateText(int currentHp)
     {
         hpView.UpdateUI(currentHp);
