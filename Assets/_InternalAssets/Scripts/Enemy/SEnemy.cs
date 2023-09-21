@@ -9,4 +9,5 @@ public class SEnemy : ScriptableObject
     public float maxHp;
     public float maxDefence;
     public float maxSpeed;
+    public int DamageValue;
 }

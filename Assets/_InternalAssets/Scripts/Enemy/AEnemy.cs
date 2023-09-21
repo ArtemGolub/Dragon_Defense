@@ -14,6 +14,7 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
     
     public float CurHp { get; private set; }
     public float MaxHp { get; private set; }
+    public int DamageValue { get; private set; }
     public float CurDefence { get; private set; }
     public float MaxDefence { get; private set; }
     public float CurSpeed { get; private set; }
@@ -36,6 +37,8 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
         MaxSpeed = Preset.maxSpeed;
         CurSpeed = MaxSpeed;
 
+        DamageValue = Preset.DamageValue;
+
         wayPoints = WayPointsManager.Instance.allWaypoints;
 
 
@@ -44,7 +47,13 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
         
         transform.position = WayPointsManager.Instance.spawnPoint.transform.position;
     }
-    
+
+    public void Finished()
+    {
+        EventManager.instance.OnRemoveWinPoints(DamageValue);
+        Destroy(this.gameObject);
+    }
+
     public void SetMoveStrategy(IMoveStrategy strategy)
     {
         moveStrategy = strategy;

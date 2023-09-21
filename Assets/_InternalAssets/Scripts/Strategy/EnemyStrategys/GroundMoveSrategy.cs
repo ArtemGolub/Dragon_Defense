@@ -24,12 +24,16 @@ public class GroundMoveSrategy : IMoveStrategy
         {
             LastPointAchived(agent);
         }
-        targetPose = agent.GetComponent<AEnemy>().wayPoints[currentWaypointIndex];
-        agent.destination = targetPose.position;
+        else
+        {
+            targetPose = agent.GetComponent<AEnemy>().wayPoints[currentWaypointIndex];
+            agent.destination = targetPose.position;
+        }
     }
 
     public void LastPointAchived(AIPath agent)
     {
+        agent.GetComponent<IEnemy>().Finished();
         agent.isStopped = true;
     }
 }

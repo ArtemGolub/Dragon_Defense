@@ -4,6 +4,7 @@ public interface IEnemy
 
     float CurHp { get; }
     float MaxHp { get; }
+    int DamageValue { get; }
 
     float CurDefence { get; }
     float MaxDefence { get; }
@@ -14,4 +15,6 @@ public interface IEnemy
     void SetMoveStrategy(IMoveStrategy strategy);
 
     void UnitInit();
+
+    void Finished();
 }
