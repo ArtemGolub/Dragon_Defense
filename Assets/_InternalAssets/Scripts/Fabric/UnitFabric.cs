@@ -21,6 +21,7 @@ public class UnitFabric : MonoBehaviour
     // TODO All setting should be send from WaveController
     public void UpdateFabric(EnemyType myFabricType)
     {
+        
         _fabricManager = new EnemyFabricManager();
         switch (myFabricType)
         {
