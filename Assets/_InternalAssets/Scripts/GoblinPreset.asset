@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b5e018a35e3e8346ab05a75d9fc8539, type: 3}
-  m_Name: WarriorPreset
+  m_Name: GoblinPreset
   m_EditorClassIdentifier: 
   prefab: {fileID: 4334954944901253963, guid: dd4af7d970717f242956b1898d12739b, type: 3}
   maxHp: 5
