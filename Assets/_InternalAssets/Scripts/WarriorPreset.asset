@@ -16,3 +16,4 @@ MonoBehaviour:
   maxHp: 5
   maxDefence: 2
   maxSpeed: 2.5
+  DamageValue: 1
