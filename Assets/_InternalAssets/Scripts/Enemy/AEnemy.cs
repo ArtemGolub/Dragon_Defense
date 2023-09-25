@@ -1,9 +1,9 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
 
-// TODO if all the settings is here, might be better way to create Enemy as empty game object and set his model with animator with code from preset
+
 public abstract class AEnemy : MonoBehaviour, IEnemy
 {
     
@@ -108,6 +108,7 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
 
     public void Death()
     {
+        GetComponent<EnemyInventory>().DropAllItems();
         Destroy(this.gameObject);
     }
     
