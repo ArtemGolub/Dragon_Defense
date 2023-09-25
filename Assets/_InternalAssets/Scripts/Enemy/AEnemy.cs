@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
@@ -7,8 +7,8 @@ using UnityEngine;
 public abstract class AEnemy : MonoBehaviour, IEnemy
 {
     
-    public SEnemy preset;
-    public SEnemy Preset
+    [HideInInspector]public EnemyData preset;
+    public EnemyData Preset
     {
         get { return preset; }
         set { preset = value; }
@@ -24,7 +24,7 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
     
     private IMoveStrategy moveStrategy;
 
-    public List<Transform> wayPoints;
+    [HideInInspector]public List<Transform> wayPoints;
 
     private AIPath _aiPath;
     

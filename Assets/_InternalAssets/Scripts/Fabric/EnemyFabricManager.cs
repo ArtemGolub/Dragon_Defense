@@ -9,7 +9,7 @@ public class EnemyFabricManager
         this.fabric = fabric;
     }
 
-    public void CreateAndInitializeEnemy(SEnemy settings, Transform spawnPoint, Transform container)
+    public void CreateAndInitializeEnemy(EnemyData settings, Transform spawnPoint, Transform container)
     {
         IEnemy unit = fabric.CreateObject(settings, spawnPoint, container);
         unit.UnitInit();

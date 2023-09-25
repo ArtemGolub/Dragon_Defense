@@ -1,6 +1,6 @@
 public interface IEnemy
 {
-    SEnemy Preset { get; }
+    EnemyData Preset { get; }
 
     float CurHp { get; }
     float MaxHp { get; }

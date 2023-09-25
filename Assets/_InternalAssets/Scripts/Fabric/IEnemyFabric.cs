@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IEnemyFabric
 {
-    IEnemy CreateObject(SEnemy settings, Transform spawnPoint, Transform container);
+    IEnemy CreateObject(EnemyData settings, Transform spawnPoint, Transform container);
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitFabric : MonoBehaviour
@@ -6,22 +7,18 @@ public class UnitFabric : MonoBehaviour
     private Transform container;
     
   // [SerializeField] private EnemyType myFabricType;
-    [SerializeField] private SEnemy settings;
-    [SerializeField] private SEnemy goblinSettings;
-    [SerializeField] private SEnemy golemSettings;
+    [SerializeField] private List<EnemyData> enemyData;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private EnemyType FabricType;
     
     public void SpawnEnemy()
     {
-        _fabricManager.CreateAndInitializeEnemy(settings, spawnPoint, container);
+        EnemyData data = enemyData.Find(data => data.EnemyType == FabricType);
+        _fabricManager.CreateAndInitializeEnemy(data, spawnPoint, container);
     }
-
-    // TODO settings should be set automaticly
-    // TODO new GoblinFabric(); should not be Monobeh
-    // TODO All setting should be send from WaveController
     public void UpdateFabric(EnemyType myFabricType)
     {
-        
+        FabricType = myFabricType;
         _fabricManager = new EnemyFabricManager();
         switch (myFabricType)
         {
@@ -29,16 +26,12 @@ public class UnitFabric : MonoBehaviour
             {
                 IEnemyFabric goblinFabric = new GoblinFabric();
                 _fabricManager.SetUnitFabric(goblinFabric);
-                settings = goblinSettings;
-                Debug.Log("goblin");
                 break;
             }
             case EnemyType.Golem:
             {
                 IEnemyFabric golemFabric = new GolemFabric();
                 _fabricManager.SetUnitFabric(golemFabric);
-                settings = golemSettings;
-                Debug.Log("golem");
                 break;
             }
         }
@@ -54,3 +47,4 @@ public class UnitFabric : MonoBehaviour
         container.SetParent(this.transform);
     }
 }
+

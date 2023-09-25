@@ -4,7 +4,7 @@ public class Goblin : AEnemy
 {
     private void Awake()
     {
-        UnitInit();
+        //UnitInit();
         SetMoveStrategy(new GroundMoveSrategy(wayPoints));
     }
     

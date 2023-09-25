@@ -6,7 +6,7 @@ public class Golem : AEnemy
 {
     private void Awake()
     {
-        UnitInit();
+       // UnitInit();
         SetMoveStrategy(new GroundMoveSrategy(wayPoints));
     }
     

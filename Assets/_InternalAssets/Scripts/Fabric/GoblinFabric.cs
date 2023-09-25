@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class GoblinFabric : MonoBehaviour, IEnemyFabric
+public class GoblinFabric : IEnemyFabric
 {
     private static int _ID;
-    public IEnemy CreateObject(SEnemy settings, Transform spawnPoint, Transform container)
+    public IEnemy CreateObject(EnemyData settings, Transform spawnPoint, Transform container)
     {
-        var newObject = Instantiate(settings.prefab, spawnPoint.position, spawnPoint.rotation);
+        var newObject = Instantiator.InstantiateObject(settings.prefab, spawnPoint.position, spawnPoint.rotation);
+            //Instantiate(settings.prefab, spawnPoint.position, spawnPoint.rotation);
         newObject.name += "ID: " + _ID;
         _ID++;
         if (container != null)
