@@ -8,7 +8,8 @@ public class InventoryItem: MonoBehaviour, IInventoryItem
     private EnemyInventory _enemyInventory;
     public string Name { get; set; }
     public int ID { get; set; }
-
+    public bool onBoss;
+    
     private void Start()
     {
         Name = itemData.Name;
@@ -27,7 +28,7 @@ public class InventoryItem: MonoBehaviour, IInventoryItem
     private void OnTriggerEnter(Collider other)
     {
         EnemyInventory enemyInventory = other.GetComponent<EnemyInventory>();
-        if (enemyInventory )
+        if (enemyInventory && !onBoss)
         {
             _enemyInventory = enemyInventory;
             enemyInventory.PickUpItem(ID, this);

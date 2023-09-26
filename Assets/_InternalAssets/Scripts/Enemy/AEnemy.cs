@@ -53,6 +53,7 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
     public void Finished()
     {
         EventManager.instance.OnRemoveWinPoints(DamageValue);
+        FindObjectOfType<BossInventory>().GetAllItems(GetComponent<EnemyInventory>().inventory);
         Destroy(this.gameObject);
     }
 
@@ -109,7 +110,6 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
 
     public void Death()
     {
-        
         Destroy(this.gameObject);
     }
     
