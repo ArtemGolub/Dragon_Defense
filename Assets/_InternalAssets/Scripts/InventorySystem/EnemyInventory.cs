@@ -8,13 +8,10 @@ public class EnemyInventory : MonoBehaviour
     
     public void PickUpItem(int itemID,InventoryItem item)
     {
+        if (GetComponent<AEnemy>().CurHp <= 0) return;
         inventory.AddItem(itemID,item, inventoryPosition);
     }
-    public void PlaceItem(InventoryItem item)
-    {
-        item.transform.SetParent(inventoryPosition);
-     //   item.transform.localPosition = Vector3.zero;
-    }
+
     public void DropAllItems()
     {
         inventory.DropItems();

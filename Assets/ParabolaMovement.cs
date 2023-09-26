@@ -10,9 +10,6 @@ public class ParabolaMovement
     private float startTime;
     private bool isMoving = false;
     
-    public delegate void OnCompleteDelegate();
-    public event OnCompleteDelegate OnComplete;
-
     public ParabolaMovement(Transform _target, Vector3 _endPos, float _height, float _duration)
     {
         target = _target;
@@ -26,7 +23,15 @@ public class ParabolaMovement
     {
         return isMoving;
     }
-
+    
+    public void StopMovement()
+    {
+        if (isMoving)
+        {
+            isMoving = false;
+        }
+    }
+    
     public void StartMovement()
     {
         if (!isMoving)
@@ -46,7 +51,6 @@ public class ParabolaMovement
             if (t >= 1.0f)
             {
                 target.localPosition = endPos;
-                OnComplete?.Invoke();
                 isMoving = false;
             }
             else

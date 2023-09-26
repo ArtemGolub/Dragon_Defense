@@ -762,6 +762,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain
       objectReference: {fileID: 0}
+    - target: {fileID: 2777887816086224257, guid: da170c36a692bb941aa2ee65ff0fccfb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2777887816086224258, guid: da170c36a692bb941aa2ee65ff0fccfb,
         type: 3}
       propertyPath: m_RootOrder
@@ -1330,6 +1335,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8085017092183600468, guid: b7cf3b2181b8db4498470a09bd2f0854,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 8085017092855039095, guid: b7cf3b2181b8db4498470a09bd2f0854,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8085017093620151917, guid: b7cf3b2181b8db4498470a09bd2f0854,
         type: 3}
       propertyPath: m_Name
@@ -1389,6 +1404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8085017093950200656, guid: b7cf3b2181b8db4498470a09bd2f0854,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7cf3b2181b8db4498470a09bd2f0854, type: 3}

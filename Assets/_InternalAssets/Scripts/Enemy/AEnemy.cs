@@ -72,6 +72,7 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
         CurHp -= amount - (amount / 100 * CurDefence);
         if (CurHp <= 0)
         {
+            GetComponent<EnemyInventory>().DropAllItems();
             GetComponentInChildren<Animator>().SetBool("isDead", true);
             _aiPath.isStopped = true;
             tag = "DeadEnemy";
@@ -108,7 +109,7 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
 
     public void Death()
     {
-        GetComponent<EnemyInventory>().DropAllItems();
+        
         Destroy(this.gameObject);
     }
     
