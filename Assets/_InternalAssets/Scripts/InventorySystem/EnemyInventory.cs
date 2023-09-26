@@ -13,6 +13,7 @@ public class EnemyInventory : MonoBehaviour
     public void PlaceItem(InventoryItem item)
     {
         item.transform.SetParent(inventoryPosition);
+     //   item.transform.localPosition = Vector3.zero;
     }
     public void DropAllItems()
     {

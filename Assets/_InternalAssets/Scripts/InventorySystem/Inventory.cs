@@ -11,7 +11,7 @@ public class Inventory
         if (!Items.ContainsKey(itemID))
         {
             Items.Add(itemID, item);
-            PlaceItem(inventoryPosition, item);
+            //PlaceItem(inventoryPosition, item);
         }
     }
     

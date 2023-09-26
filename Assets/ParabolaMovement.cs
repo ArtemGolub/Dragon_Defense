@@ -31,7 +31,7 @@ public class ParabolaMovement
     {
         if (!isMoving)
         {
-            startPos = target.localPosition; // Обновляем начальную позицию
+            startPos = target.localPosition;
             startTime = Time.time;
             isMoving = true;
         }

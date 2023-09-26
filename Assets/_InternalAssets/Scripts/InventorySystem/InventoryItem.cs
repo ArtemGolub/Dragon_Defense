@@ -27,7 +27,8 @@ public class InventoryItem: MonoBehaviour, IInventoryItem
     
     private void OnMovementComplete()
     {
-       // _enemyInventory.PlaceItem(this);
+        _enemyInventory.PlaceItem(this);
+        _parabolaMovement.OnComplete -= OnMovementComplete;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -36,14 +37,24 @@ public class InventoryItem: MonoBehaviour, IInventoryItem
         {
             _enemyInventory = enemyInventory;
             enemyInventory.PickUpItem(ID, this);
-            _parabolaMovement = new ParabolaMovement(transform, enemyInventory.inventoryPosition.position, 4.0f, 1);
+            
+            _enemyInventory.PlaceItem(this);
+            
+            _parabolaMovement = new ParabolaMovement(transform, Vector3.zero,4.0f, 1);
             _parabolaMovement.OnComplete += OnMovementComplete;
             _parabolaMovement.StartMovement();
         }
     }
-    
-    private void OnDestroy()
-    {
-        _parabolaMovement.OnComplete -= OnMovementComplete;
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     EnemyInventory enemyInventory = other.GetComponent<EnemyInventory>();
+    //     if (enemyInventory)
+    //     {
+    //         _enemyInventory = enemyInventory;
+    //         enemyInventory.PickUpItem(ID, this);
+    //         _parabolaMovement = new ParabolaMovement(transform, enemyInventory.inventoryPosition.position, 4.0f, 1);
+    //         _parabolaMovement.OnComplete += OnMovementComplete;
+    //         _parabolaMovement.StartMovement();
+    //     }
+    // }
 }

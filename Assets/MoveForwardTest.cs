@@ -6,7 +6,7 @@ public class MoveForwardTest : MonoBehaviour
     public Transform endPoint;
     void Start()
     {
-        parabolicMovement = new ParabolaMovement(transform, endPoint.position, 4.0f, 2.0f);
+        //  parabolicMovement = new ParabolaMovement(transform, endPoint.position, 4.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -14,7 +14,7 @@ public class MoveForwardTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !parabolicMovement.IsMoving())
         {
-            parabolicMovement.StartMovement();
+           // parabolicMovement.StartMovement();
         }
         if (parabolicMovement.IsMoving())
         {
