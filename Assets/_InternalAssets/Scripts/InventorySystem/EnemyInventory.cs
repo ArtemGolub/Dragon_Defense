@@ -16,4 +16,9 @@ public class EnemyInventory : MonoBehaviour
     {
         inventory.DropItems();
     }
+
+    public void GetItemFromGost()
+    {
+        GostInventory.instance.SendItem(inventory, inventoryPosition);
+    }
 }

@@ -8,6 +8,7 @@ public class Inventory
     private Dictionary<int, InventoryItem> Items { get; } = new Dictionary<int, InventoryItem>();
     private ParabolaMovement _parabolaMovement;
     private static int itemIdModificator;
+    private static int itemIdModificator1;
     
     public void AddItem(int itemID, InventoryItem item, List<Transform> inventoryPosition)
     {
@@ -43,7 +44,36 @@ public class Inventory
         }
     }
 
-    public void AddToBossItem(int itemID, InventoryItem item, List<Transform> inventoryPosition)
+    public void AddNextItem(Inventory inventory,List<InventoryItem> items)
+    {
+        if(items.Count <= 0) return;
+        inventory.Items.Add(items[0].ID, items[0]);
+        items.Remove(items[0]);
+    }
+    
+    public void SendOneItem(Inventory fromInventory, Inventory toInventory, List<Transform> inventoryPosition)
+    {
+        List<int> itemsToRemove = new List<int>();
+        foreach (var itemEntry in fromInventory.Items)
+        {
+            int itemID = itemEntry.Key;
+            itemsToRemove.Add(itemID);
+        }
+        foreach (int itemID in itemsToRemove)
+        {
+            toInventory.AddToUnitItem(itemID, fromInventory.Items[itemID], inventoryPosition);
+            fromInventory.Items.Remove(itemID);
+        }
+    }
+
+    private void AddToUnitItem(int itemID, InventoryItem item, List<Transform> inventoryPosition)
+    {
+        Items.Add(itemID, item);
+        PlaceItem(inventoryPosition, item);
+    }
+    
+    
+    private void AddToBossItem(int itemID, InventoryItem item, List<Transform> inventoryPosition)
     {
         item.onBoss = true;
         Items.Add(itemID + itemIdModificator, item);
