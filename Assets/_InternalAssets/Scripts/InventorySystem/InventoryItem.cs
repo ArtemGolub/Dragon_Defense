@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 public class InventoryItem: MonoBehaviour, IInventoryItem
@@ -24,7 +25,11 @@ public class InventoryItem: MonoBehaviour, IInventoryItem
             _parabolaMovement.UpdateMovement();
         }
     }
-    
+
+    public void StartRotation(Transform target)
+    {
+        transform.DOLocalRotate(new Vector3(target.rotation.x, target.rotation.y, target.rotation.z), 0.5f);
+    }
     private void OnTriggerEnter(Collider other)
     {
         EnemyInventory enemyInventory = other.GetComponent<EnemyInventory>();

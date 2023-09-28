@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -23,12 +24,11 @@ public class Inventory
     private void PlaceItem(List<Transform> inventoryPosition, InventoryItem item)
     {
         if (inventoryPosition == null || inventoryPosition.Count == 0) return;
-
-        // Найдите первую доступную позицию.
+        
         Transform availablePosition = null;
         foreach (Transform position in inventoryPosition)
         {
-            if (position.childCount == 0) // Позиция не занята другим объектом.
+            if (position.childCount == 0)
             {
                 availablePosition = position;
                 break;
@@ -37,9 +37,9 @@ public class Inventory
 
         if (availablePosition != null)
         {
-            // Установите позицию объекта и добавьте его в родительский объект.
             item.transform.SetParent(availablePosition);
             item._parabolaMovement = new ParabolaMovement(item.transform, Vector3.zero, 4.0f, 1);
+            item.StartRotation(availablePosition);
             item._parabolaMovement.StartMovement();
         }
     }
@@ -79,6 +79,8 @@ public class Inventory
         Items.Add(itemID + itemIdModificator, item);
         PlaceItem(inventoryPosition, item);
         itemIdModificator++;
+        
+      
     }
     public void GetAllItems(Inventory fromInventory, Inventory toInventory, List<Transform> inventoryPosition)
     {
