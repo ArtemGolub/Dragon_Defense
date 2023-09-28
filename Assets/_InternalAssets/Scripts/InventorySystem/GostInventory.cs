@@ -13,13 +13,14 @@ public class GostInventory : MonoBehaviour
     private void Start()
     {
         instance = this;
-        inventory.AddNextItem(inventory, items);
+        inventory.AddNextItem(inventory, items, this.gameObject.transform);
     }
 
     public void SendItem(Inventory toInventory, List<Transform> inventoryPosition)
     {
         if(items == null) return;
+        GetComponentInChildren<Animator>().SetBool("isIdle", false);
         inventory.SendOneItem(inventory, toInventory, inventoryPosition);
-        inventory.AddNextItem(inventory, items);
+        inventory.AddNextItem(inventory, items, this.gameObject.transform);
     }
 }

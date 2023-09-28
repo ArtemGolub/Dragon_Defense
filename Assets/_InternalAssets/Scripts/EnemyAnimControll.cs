@@ -7,7 +7,15 @@ public class EnemyAnimControll : MonoBehaviour
     public GameObject onDeathFX;
     void OnDeath()
     {
-        var a = Instantiate(onDeathFX, transform.position, transform.rotation);
-        GetComponentInParent<AEnemy>().Death();
+        var a = Instantiate(onDeathFX, transform.position + new Vector3(0,1.5f,0), transform.rotation);
+        if (GetComponentInParent<AEnemy>())
+        {
+            GetComponentInParent<AEnemy>().Death();
+        }
+        else
+        {
+            GetComponentInParent<GostLogic>().Death();
+        }
+
     }
 }

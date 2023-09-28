@@ -44,10 +44,17 @@ public class Inventory
         }
     }
 
-    public void AddNextItem(Inventory inventory,List<InventoryItem> items)
+    public void AddNextItem(Inventory inventory,List<InventoryItem> items, Transform myObject)
     {
-        if(items.Count <= 0) return;
+        if (items.Count <= 0)
+        {
+            myObject.GetComponentInChildren<Animator>().SetBool("isMove", true);
+            myObject.GetComponent<GostLogic>().StartMovement();
+            return;
+        }
         inventory.Items.Add(items[0].ID, items[0]);
+        AddItem(items[0].ID, items[0], myObject.GetComponent<GostInventory>().inventoryPositions);
+        
         items.Remove(items[0]);
     }
     
