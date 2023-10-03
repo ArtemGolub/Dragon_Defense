@@ -1,6 +1,7 @@
 public enum AttackType
 {
-    Normal,
+    SingleShot,
     MultyShot,
-    AOE
+    AOE,
+    NoAttack
 }

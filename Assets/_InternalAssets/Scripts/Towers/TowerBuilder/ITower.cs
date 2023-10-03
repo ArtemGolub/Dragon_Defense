@@ -8,4 +8,6 @@ public interface ITower
   //  GameObject model { get; set; }
     void InitTower();
     void OnBuild();
+
+    void DisableTower();
 }

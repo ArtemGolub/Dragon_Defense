@@ -69,6 +69,7 @@ public class BuildingSystem : MonoBehaviour
     {
         if (!isCancel)
         {
+            if (objectToPlace == null) return;
             if (objectToPlace.CanBePlaced())
             {
                 objectToPlace.Place();
@@ -188,6 +189,10 @@ public class BuildingSystem : MonoBehaviour
         {
             if (b != TileBases[TileType.NormalTile])
             {
+                if (b == TileBases[TileType.AlreadyBuilded])
+                {
+                    objectToPlace.transform.GetComponent<BuildingMerge>().MergeBuildings();
+                }
                 return false;
             }
         }
@@ -201,6 +206,20 @@ public class BuildingSystem : MonoBehaviour
         
         
         TempTileMap.BoxFill(start, normalTile, start.x, start.y,
+            start.x + size.x - 1, start.y + size.y - 1);
+    }
+
+    public void RestoreArea(PlaceableObject objectToPlace)
+    {
+        if (objectToPlace != null) ;
+        var start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
+        var size = objectToPlace.area.size;
+        
+        MainTileMap.BoxFill(start, normalTile, start.x, start.y,
+            start.x + size.x - 1, start.y + size.y - 1);
+        
+        
+        TempTileMap.BoxFill(start, alreadyBuilded, start.x, start.y,
             start.x + size.x - 1, start.y + size.y - 1);
     }
     
