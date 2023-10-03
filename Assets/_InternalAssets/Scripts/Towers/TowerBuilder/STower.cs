@@ -5,5 +5,4 @@ public class STower : ScriptableObject
 {
     public string TowerName;
     public TowerType TowerType;
-    public GameObject model;
 }

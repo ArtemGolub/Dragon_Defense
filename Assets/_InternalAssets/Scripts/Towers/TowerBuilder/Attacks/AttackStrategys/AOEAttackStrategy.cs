@@ -28,7 +28,7 @@ public class AOEAttackStrategy : IAttackStrategy, IAOEShotAttack
             }
         }
     
-        if (nearestEnemy != null && shortestDistance <= _tower.AttackRange) // Проверяем на зону атаки
+        if (nearestEnemy != null && shortestDistance <= _tower.AttackRange)
         {
             _tower.target = nearestEnemy.transform;
         }

@@ -10,6 +10,7 @@ public class BuildingController : MonoBehaviour
     
     public GameObject Tower1;
     public GameObject Tower2;
+    public GameObject Tower3;
 
     private void Start()
     {
@@ -38,6 +39,13 @@ public class BuildingController : MonoBehaviour
     public void OnButton2Click()
     {
         prefabModel.BuildingPrefab = Tower2;
+        prefabView.HideUI();
+        InstantiateSelectedPrefab();
+    }
+
+    public void OnButton3Click()
+    {
+        prefabModel.BuildingPrefab = Tower3;
         prefabView.HideUI();
         InstantiateSelectedPrefab();
     }
