@@ -9,6 +9,7 @@ public class BuildingView : MonoBehaviour, IBuildingView
 {
     public Button buttonTower1;
     public Button buttonTower2;
+    public Button buttonTower3;
     
     private BuildingController prefabController;
 
@@ -18,17 +19,20 @@ public class BuildingView : MonoBehaviour, IBuildingView
 
         buttonTower1.onClick.AddListener(prefabController.OnButton1Click);
         buttonTower2.onClick.AddListener(prefabController.OnButton2Click);
+        buttonTower3.onClick.AddListener(prefabController.OnButton3Click);
     }
     
     public void HideUI()
     {
         buttonTower1.gameObject.SetActive(false);
         buttonTower2.gameObject.SetActive(false);
+        buttonTower3.gameObject.SetActive(false);
     }
 
     public void ShowUI()
     {
         buttonTower1.gameObject.SetActive(true);
         buttonTower2.gameObject.SetActive(true);
+        buttonTower3.gameObject.SetActive(true);
     }
 }

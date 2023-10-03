@@ -7,7 +7,7 @@ public class AttackStrategyFactory
             case AttackType.Normal:
                 return new SingleShotAttackStrategy(tower);
             case AttackType.MultyShot:
-                return null;
+                return new MultyAttackStrategy(tower);
             case AttackType.AOE:
                 return new AOEAttackStrategy(tower);
             default:
