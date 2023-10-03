@@ -44,6 +44,8 @@ public class Inventory
         }
     }
 
+
+
     public void AddNextItem(Inventory inventory,List<InventoryItem> items, Transform myObject)
     {
         if (items.Count <= 0)
@@ -52,9 +54,9 @@ public class Inventory
             myObject.GetComponent<GostLogic>().StartMovement();
             return;
         }
-        inventory.Items.Add(items[0].ID, items[0]);
-        AddItem(items[0].ID, items[0], myObject.GetComponent<GostInventory>().inventoryPositions);
-        
+         inventory.Items.Add(items[0].ID, items[0]);
+         AddItem(items[0].ID, items[0], myObject.GetComponent<GostInventory>().inventoryPositions);
+        // PlaceItem(myObject.GetComponent<GostInventory>().inventoryPositions, items[0]);
         items.Remove(items[0]);
     }
     
@@ -86,8 +88,6 @@ public class Inventory
         Items.Add(itemID + itemIdModificator, item);
         PlaceItem(inventoryPosition, item);
         itemIdModificator++;
-        
-      
     }
     public void GetAllItems(Inventory fromInventory, Inventory toInventory, List<Transform> inventoryPosition)
     {

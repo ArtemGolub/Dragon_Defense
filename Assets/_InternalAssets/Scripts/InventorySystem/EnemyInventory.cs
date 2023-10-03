@@ -5,6 +5,7 @@ public class EnemyInventory : MonoBehaviour
 {
     public Inventory inventory = new Inventory();
     public List<Transform> inventoryPosition;
+    private bool gotItem;
 
     public void PickUpItem(int itemID,InventoryItem item)
     {
@@ -20,7 +21,11 @@ public class EnemyInventory : MonoBehaviour
 
     public void GetItemFromGost()
     {
+        if (gotItem) return;
+        if(GostInventory.instance == null) return;
+        
         GostInventory.instance.SendItem(inventory, inventoryPosition);
         GetComponentInChildren<Animator>().SetBool("isHaveItem", true);
+        gotItem = true;
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAnimControll : MonoBehaviour
@@ -16,6 +14,11 @@ public class EnemyAnimControll : MonoBehaviour
         {
             GetComponentInParent<GostLogic>().Death();
         }
+    }
 
+
+    void ReturnToIdle()
+    {
+        GetComponentInParent<Animator>().SetBool("isIdle", true);
     }
 }

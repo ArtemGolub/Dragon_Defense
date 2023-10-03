@@ -11,7 +11,11 @@ public class GostLogic : MonoBehaviour
 
     public void StartMovement()
     {
-        transform.DOMove(moveToPoint.position, 5).onComplete = OnMovementEnd;
+        transform.DOMove(moveToPoint.position, 3)
+            .SetEase(Ease.Linear)
+            .onComplete = OnMovementEnd;
+        
+        transform.LookAt(moveToPoint);
     }
 
     private void OnMovementEnd()
