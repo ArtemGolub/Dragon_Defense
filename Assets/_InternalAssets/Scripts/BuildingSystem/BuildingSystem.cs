@@ -181,7 +181,7 @@ public class BuildingSystem : MonoBehaviour
         FollowBuilding();
     }
 
-    public void InitMergedPrefab(GameObject prefab, Transform placePose, IAttackStrategy mergedStrategy)
+    public void InitMergedPrefab(GameObject prefab, Transform placePose)
     {
         var position = SnapCoordinateToGrid(placePose.position);
         GameObject obj = Instantiate(prefab, position, Quaternion.identity);
@@ -202,9 +202,9 @@ public class BuildingSystem : MonoBehaviour
         objectToPlace = obj.GetComponent<PlaceableObject>();
         obj.AddComponent<ObjectDrag>();
         
-        objectToPlace.GetComponent<MergedTower>().attackStrategy = mergedStrategy;
+        //objectToPlace.GetComponent<MergedTower>().attackStrategy = mergedStrategy;
 
-       // TryPlaceBuilding(false);
+        //TryPlaceBuilding(false);
     }
 
     public bool CanBePlaced(BoundsInt area)

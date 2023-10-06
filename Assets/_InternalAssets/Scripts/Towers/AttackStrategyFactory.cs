@@ -50,7 +50,7 @@ public class AttackStrategyFactory
         return myMergedAttackType;
     }
 
-    public static IAttackStrategy CreateMergedStrategy(AttackType attackType1, AttackType attackType2)
+    public static IAttackStrategy CreateMergedStrategy(AttackType attackType1, AttackType attackType2, MergedTower tower)
     {
         if (mergedAttackType.TryGetValue((attackType1, attackType2), out var myMergedAttackType))
         {
@@ -63,13 +63,11 @@ public class AttackStrategyFactory
                 }
                 case MergedAttackType.Single_AOE_Shot:
                 {
-                    Debug.Log("Single_AOE_Shot");
-                    return null;
+                    return new Single_AOEAttackStrategy(tower);
                 }
                 case MergedAttackType.Double_Single_Shot:
                 {
-                    Debug.Log("Double_Single_Shot");
-                    return null;
+                    return new Single_AOEAttackStrategy(tower);
                 }
                 
                 case MergedAttackType.Multy_Aoe_Shoot:

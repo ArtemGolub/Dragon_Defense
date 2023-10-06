@@ -12,23 +12,26 @@ public class BuildingMerge : MonoBehaviour
         if (doOnce) return;
         BuildingController.intstance.ShowUI();
 
-        objectToMerge.GetComponent<AtackTower>().DisableTower();
+            //objectToMerge.GetComponent<AtackTower>().DisableTower();
 
         BuildingSystem.current.RestoreArea(transform.GetComponent<PlaceableObject>());
         BuildingSystem.current.RestoreArea(objectToMerge.GetComponent<PlaceableObject>());
-
         
+        var mergedPrefab = BuildingStrategy.current.CreateObject(AttackStrategyFactory.MAttackType(objectToMerge.GetComponent<AAttackTower>().AttackType,
+            this.GetComponent<AAttackTower>().AttackType));
+        
+        
+        
+        
+        BuildingSystem.current.InitMergedPrefab(mergedPrefab, transform);
+        mergedPrefab.GetComponent<MergedTower>().type1 = objectToMerge.GetComponent<AAttackTower>().AttackType;
+        mergedPrefab.GetComponent<MergedTower>().type2 = this.GetComponent<AAttackTower>().AttackType;
+
         doOnce = true;
         Destroy(objectToMerge.gameObject);
         Destroy(this.gameObject);
         
-        // var mergedStrategy = AttackStrategyFactory.CreateMergedStrategy(objectToMerge.GetComponent<AAttackTower>().AttackType,
-        //     this.GetComponent<AAttackTower>().AttackType);
-        //
-        // var mergedPrefab = BuildingStrategy.current.CreateObject(AttackStrategyFactory.MAttackType(objectToMerge.GetComponent<AAttackTower>().AttackType,
-        //     this.GetComponent<AAttackTower>().AttackType));
 
-        // BuildingSystem.current.InitMergedPrefab(mergedPrefab, transform, mergedStrategy);
     }
 
     private void OnTriggerEnter(Collider other)

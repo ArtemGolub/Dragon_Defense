@@ -5,12 +5,17 @@ using UnityEngine;
 public class MergedTower : AAttackTower
 {
     public Transform target;
+    
+    public AttackType type1;
+    public AttackType type2;
+    
     public IAttackStrategy attackStrategy;
     
     public override void OnBuild()
     {
         InitTower();
         InitAttackTower();
+        SetAttackStrategy();
         InvokeRepeating("StartUpdatingTarget", 0, 0.5f);
     }
 
@@ -18,6 +23,7 @@ public class MergedTower : AAttackTower
     {
         CancelInvoke("StartUpdatingTarget");
     }
+    
 
     private void FixedUpdate()
     {
@@ -28,11 +34,15 @@ public class MergedTower : AAttackTower
         }
         attackStrategy.Shooting();
     }
-    
+
+    private void SetAttackStrategy()
+    {
+        attackStrategy = AttackStrategyFactory.CreateMergedStrategy(type1, type2,this);
+    }
 
     public void StartUpdatingTarget()
     {
-       // attackStrategy.UpdateTarget("Enemy", AttackRange);
+        attackStrategy.UpdateTarget("Enemy", AttackRange);
     }
 
     public void BuildMergedTower()
