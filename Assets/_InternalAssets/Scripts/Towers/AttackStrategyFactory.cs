@@ -40,6 +40,16 @@ public class AttackStrategyFactory
         }
     }
 
+    public static MergedAttackType MAttackType(AttackType attackType1, AttackType attackType2)
+    {
+        if (mergedAttackType.TryGetValue((attackType1, attackType2), out var myMergedAttackType))
+        {
+            return myMergedAttackType;
+        }
+
+        return myMergedAttackType;
+    }
+
     public static IAttackStrategy CreateMergedStrategy(AttackType attackType1, AttackType attackType2)
     {
         if (mergedAttackType.TryGetValue((attackType1, attackType2), out var myMergedAttackType))

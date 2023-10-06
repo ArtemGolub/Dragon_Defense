@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [HideInInspector]public int CurHealthPoints;
     public int MaxhHealthPoints = 5;
+    
+    
+    
     private void Awake()
     {
         instance = this;
@@ -15,5 +18,6 @@ public class GameManager : MonoBehaviour
     {
         CurHealthPoints = MaxhHealthPoints;
         HPController.intstance.UpdateText(CurHealthPoints);
+        
     }
 }
