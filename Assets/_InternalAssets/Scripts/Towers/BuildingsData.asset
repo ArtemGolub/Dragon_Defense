@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248215b4f8eae284ba48c1d64b675559, type: 3}
   m_Name: BuildingsData
   m_EditorClassIdentifier: 
-  Single_AOE_Shot_Prefab: {fileID: 5940645715693912778, guid: 1ae7ea000f5b36543b97ca067b91d75a,
+  Single_AOE_Shot_Prefab: {fileID: 8141641501409240629, guid: 102c3c32476c63a41a07c1e54cf236e5,
     type: 3}
   Single_Multy_Shot_Prefab: {fileID: 5940645715693912778, guid: 1ae7ea000f5b36543b97ca067b91d75a,
     type: 3}

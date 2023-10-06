@@ -81,14 +81,14 @@ public class BuildingSystem : MonoBehaviour
             else
             {
                 ClearArea();
-                Destroy(objectToPlace.gameObject);
+               // Destroy(objectToPlace.gameObject);
             }
         }
         else
         {
             ClearArea();
             FollowBuilding();
-            Destroy(objectToPlace.gameObject);
+           // Destroy(objectToPlace.gameObject);
         }
     }
 
@@ -180,7 +180,32 @@ public class BuildingSystem : MonoBehaviour
         obj.AddComponent<ObjectDrag>();
         FollowBuilding();
     }
-    
+
+    public void InitMergedPrefab(GameObject prefab, Transform placePose, IAttackStrategy mergedStrategy)
+    {
+        var position = SnapCoordinateToGrid(placePose.position);
+        GameObject obj = Instantiate(prefab, position, Quaternion.identity);
+        
+        var cellSize = gridLayout.cellSize;
+       
+        Vector3 centerPosition = new Vector3(
+            (obj.GetComponent<PlaceableObject>().area.size.x - 1) * cellSize.x * 0.5f + (cellSize.x * 0.5f),
+            0,
+            ((obj.GetComponent<PlaceableObject>().area.size.y - 1) * cellSize.y * 0.5f + (cellSize.y * 0.5f))
+        );
+
+
+        obj.transform.position -= centerPosition;
+        
+        obj.GetComponent<PlaceableObject>().CalculatePositions();
+        
+        objectToPlace = obj.GetComponent<PlaceableObject>();
+        obj.AddComponent<ObjectDrag>();
+        
+        objectToPlace.GetComponent<MergedTower>().attackStrategy = mergedStrategy;
+
+       // TryPlaceBuilding(false);
+    }
 
     public bool CanBePlaced(BoundsInt area)
     {
@@ -221,10 +246,12 @@ public class BuildingSystem : MonoBehaviour
         
         TempTileMap.BoxFill(start, alreadyBuilded, start.x, start.y,
             start.x + size.x - 1, start.y + size.y - 1);
+
+
+        MergedClearArea(objectToPlace);
     }
+
     
-
-
     #endregion
     
     #region ColorTiles
@@ -242,6 +269,14 @@ public class BuildingSystem : MonoBehaviour
         TempTileMap.SetTilesBlock(prevBuildingArea, prevToClear);
     }
 
+    private void MergedClearArea(PlaceableObject objectToPlace)
+    {
+        // Clear the current building area on the TempTileMap
+        TileBase[] toClear = new TileBase[objectToPlace.area.size.x * objectToPlace.area.size.y * objectToPlace.area.size.z];
+        FillTiles(toClear, TileType.Null);
+        TempTileMap.SetTilesBlock(objectToPlace.area, toClear);
+    }
+    
     
     private void FollowBuilding()
     {

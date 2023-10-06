@@ -111,6 +111,7 @@ public class PlaceableObject : MonoBehaviour
 
     private void GetBuilding()
     {
+        if (Placed != true) return;
         Placed = false;
         
         BuildingSystem.current.objectToPlace = this;
