@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee27be48da58b743a5e8bed1c0f67cd, type: 3}
-  m_Name: New Tower 2
+  m_Script: {fileID: 11500000, guid: b8dc8391f8954ad2b13f14832236ba0d, type: 3}
+  m_Name: Double_MultyShot_Preset
   m_EditorClassIdentifier: 
-  TowerName: MageTower
-  TowerType: 0
+  AttackType: 3
+  Damage: 5
+  AttackSpeed: 1
+  AttackRange: 10
+  BulletPrefab: {fileID: 4522957673895848246, guid: 8e7dc08ad33ed814c98509817d412580,
+    type: 3}

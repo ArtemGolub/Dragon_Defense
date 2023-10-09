@@ -17,16 +17,13 @@ public class BuildingMerge : MonoBehaviour
         BuildingSystem.current.RestoreArea(transform.GetComponent<PlaceableObject>());
         BuildingSystem.current.RestoreArea(objectToMerge.GetComponent<PlaceableObject>());
         
-        var mergedPrefab = BuildingStrategy.current.CreateObject(AttackStrategyFactory.MAttackType(objectToMerge.GetComponent<AAttackTower>().AttackType,
-            this.GetComponent<AAttackTower>().AttackType));
-        
-        
-        
+        var mergedPrefab = BuildingStrategy.current.CreateObject(AttackStrategyFactory.MAttackType(objectToMerge.GetComponent<AAttackTower>().AttackTowerPreset.AttackType,
+            this.GetComponent<AAttackTower>().AttackTowerPreset.AttackType));
         
         BuildingSystem.current.InitMergedPrefab(mergedPrefab, transform);
-        mergedPrefab.GetComponent<MergedTower>().type1 = objectToMerge.GetComponent<AAttackTower>().AttackType;
-        mergedPrefab.GetComponent<MergedTower>().type2 = this.GetComponent<AAttackTower>().AttackType;
-
+        mergedPrefab.GetComponent<MergedTower>().type1 = objectToMerge.GetComponent<AAttackTower>().AttackTowerPreset.AttackType;
+        mergedPrefab.GetComponent<MergedTower>().type2 = this.GetComponent<AAttackTower>().AttackTowerPreset.AttackType;
+        
         doOnce = true;
         Destroy(objectToMerge.gameObject);
         Destroy(this.gameObject);

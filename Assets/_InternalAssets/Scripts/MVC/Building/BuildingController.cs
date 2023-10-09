@@ -11,8 +11,6 @@ public class BuildingController : MonoBehaviour
     public GameObject Tower1;
     public GameObject Tower2;
     public GameObject Tower3;
-
-    public GameObject mergedTower;
     
     private void Start()
     {

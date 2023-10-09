@@ -67,6 +67,8 @@ public class AttackStrategyFactory
                 }
                 case MergedAttackType.Double_Single_Shot:
                 {
+                    Debug.Log("Double_Single");
+                    return null;
                     return new Single_AOEAttackStrategy(tower);
                 }
                 

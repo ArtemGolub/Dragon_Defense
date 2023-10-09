@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: -8205879461448877491}
   - component: {fileID: 5157287112531897386}
   m_Layer: 0
-  m_Name: Single_AOE_Shot_Prefab
+  m_Name: Double_MultyShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,9 +233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800cfc8ab0904244685f4dd7e46a25b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preset: {fileID: 11400000, guid: 3edae099d19db4149a9797dbc16a925d, type: 2}
+  preset: {fileID: 11400000, guid: d000c238adabc36489d066c536ac7b9f, type: 2}
   builded: 0
-  AttackTowerPreset: {fileID: 11400000, guid: a0e9247f23daec540b1cb78d41978085, type: 2}
+  AttackTowerPreset: {fileID: 11400000, guid: 5871e0eaa80060c438851c4c3e6727bb, type: 2}
   FirePoint: {fileID: 593401192}
   target: {fileID: 0}
   type1: 0

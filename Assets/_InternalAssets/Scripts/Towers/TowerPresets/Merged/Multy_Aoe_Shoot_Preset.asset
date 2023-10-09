@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee27be48da58b743a5e8bed1c0f67cd, type: 3}
-  m_Name: New Tower 1
+  m_Script: {fileID: 11500000, guid: b8dc8391f8954ad2b13f14832236ba0d, type: 3}
+  m_Name: Multy_Aoe_Shoot_Preset
   m_EditorClassIdentifier: 
-  TowerName: Catapult
-  TowerType: 0
-  model: {fileID: 8141641501409240629, guid: 9cb489d00bdf5574296a49c031d52506, type: 3}
+  AttackType: 3
+  Damage: 5
+  AttackSpeed: 1
+  AttackRange: 10
+  BulletPrefab: {fileID: 4522957673895848246, guid: 8e7dc08ad33ed814c98509817d412580,
+    type: 3}
