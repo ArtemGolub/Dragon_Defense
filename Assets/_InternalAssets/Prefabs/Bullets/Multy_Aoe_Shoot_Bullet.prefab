@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5006781318013022746}
-  - component: {fileID: -2458983357253075716}
+  - component: {fileID: 3953102971332803424}
   m_Layer: 0
-  m_Name: SingleBullet 1
+  m_Name: Multy_Aoe_Shoot_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-2458983357253075716
+--- !u!114 &3953102971332803424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,12 +43,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4522957673895848246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31ac99b099bb40f391290c20f2c3c74a, type: 3}
+  m_Script: {fileID: 11500000, guid: a05ead222eea1b249957ca7402621232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  Damage: 5
-  offSet: 0.5
+  damageRadius: 5
+  Damage: 1
+  parabolaHeight: 2
+  factor: 0
+  HeightDependencyDistance: 0.01
+  LowerDependencyDistance: -0.1
+  FXprefab: {fileID: 154950, guid: f407b02e7947b9143969a306aee2b85c, type: 3}
+  ease: 3
 --- !u!1001 &556681273518137366
 PrefabInstance:
   m_ObjectHideFlags: 0

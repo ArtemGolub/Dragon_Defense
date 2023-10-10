@@ -81,8 +81,7 @@ public class AttackStrategyFactory
                 
                 case MergedAttackType.Double_AOE_Shoot:
                 {
-                    Debug.Log("Double_AOE_Shoot");
-                    return null;
+                    return new Double_AOE_Strategy(tower); // change bullet and settings in preset
                 }
                 default:
                 {
