@@ -71,13 +71,12 @@ public class AttackStrategyFactory
                 
                 case MergedAttackType.Multy_Aoe_Shoot:
                 {
-                    return new Multy_Aoe_Strategy(tower);
+                    return new Multy_Aoe_Strategy(tower); // change bullet and settings in preset
                 }
                 
                 case MergedAttackType.Double_MultyShot:
                 {
-                    Debug.Log("Double_MultyShot");
-                    return null;
+                    return new Double_MultyShot_Strategy(tower); // change bullet and settings in preset
                 }
                 
                 case MergedAttackType.Double_AOE_Shoot:
