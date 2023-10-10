@@ -11,7 +11,7 @@ public class BuildingController : MonoBehaviour
     public GameObject Tower1;
     public GameObject Tower2;
     public GameObject Tower3;
-
+    
     private void Start()
     {
         intstance = this;

@@ -20,4 +20,5 @@ public abstract class ATower : MonoBehaviour, ITower
     }
 
     public abstract void OnBuild();
+    public abstract void DisableTower();
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
@@ -101,5 +102,26 @@ public class PlaceableObject : MonoBehaviour
 
         var collider = transform.GetComponent<BoxCollider>();
         collider.center = model.transform.localPosition;
+    }
+    
+    private void OnMouseDown()
+    {
+        GetBuilding();
+    }
+
+    private void GetBuilding()
+    {
+        if (Placed != true) return;
+        Placed = false;
+        
+        BuildingSystem.current.objectToPlace = this;
+        BuildingSystem.current.RestoreArea(this);
+        
+        transform.AddComponent<ObjectDrag>();
+        
+        
+        transform.GetComponent<ITower>().DisableTower();
+        transform.GetComponent<AAttackTower>().builded = false;
+
     }
 }

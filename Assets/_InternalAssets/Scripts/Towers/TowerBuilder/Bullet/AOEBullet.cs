@@ -97,5 +97,6 @@ public class AOEBullet : MonoBehaviour, IBullet
                 }
             }
         }
+        Destroy(this.gameObject);
     }
 }

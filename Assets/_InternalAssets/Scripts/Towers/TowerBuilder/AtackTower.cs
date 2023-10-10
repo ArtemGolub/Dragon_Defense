@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AtackTower : AAttackTower
@@ -13,6 +14,12 @@ public class AtackTower : AAttackTower
         InitAttackTower();
         SetAttackStrategy(AttackType);
         InvokeRepeating("StartUpdatingTarget", 0, 0.5f);
+    }
+
+    public override void DisableTower()
+    {
+        SetAttackStrategy(AttackType.NoAttack);
+        CancelInvoke("StartUpdatingTarget");
     }
 
     private void FixedUpdate()

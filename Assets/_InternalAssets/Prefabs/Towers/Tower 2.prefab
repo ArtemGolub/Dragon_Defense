@@ -1010,6 +1010,8 @@ GameObject:
   - component: {fileID: 1893817817}
   - component: {fileID: 1090082534791611226}
   - component: {fileID: 1117548808839456868}
+  - component: {fileID: -7241702623658837498}
+  - component: {fileID: -626803621426786148}
   m_Layer: 0
   m_Name: Tower 2
   m_TagString: Untagged
@@ -1079,6 +1081,35 @@ MonoBehaviour:
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 2, y: 2, z: 1}
+--- !u!54 &-7241702623658837498
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8141641501409240629}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-626803621426786148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8141641501409240629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e771f4e3031f943a972e3c2c744ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToMerge: {fileID: 0}
 --- !u!1 &8141641501891908053
 GameObject:
   m_ObjectHideFlags: 0
