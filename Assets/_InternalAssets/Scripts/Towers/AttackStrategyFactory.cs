@@ -58,22 +58,20 @@ public class AttackStrategyFactory
             {
                 case MergedAttackType.Single_Multy_Shot:
                 {
-                    Debug.Log("Single_Multy_Shot");
-                    return null;
+                    return new Single_Multy_Strategy(tower); // change bullet and settings in preset
                 }
                 case MergedAttackType.Single_AOE_Shot:
                 {
-                    return new Single_AOEAttackStrategy(tower);
+                    return new Single_AOEAttackStrategy(tower); // change bullet and settings in preset
                 }
                 case MergedAttackType.Double_Single_Shot:
                 {
-                    return new DoubleSingleShotStrategy(tower);
+                    return new DoubleSingleShotStrategy(tower); // change bullet and settings in preset
                 }
                 
                 case MergedAttackType.Multy_Aoe_Shoot:
                 {
-                    Debug.Log("Multy_Aoe_Shoot");
-                    return null;
+                    return new Multy_Aoe_Strategy(tower);
                 }
                 
                 case MergedAttackType.Double_MultyShot:
