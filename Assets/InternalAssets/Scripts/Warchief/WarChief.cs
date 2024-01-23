@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class GostLogic : MonoBehaviour
+public class WarChief : MonoBehaviour
 {
-    private GostInventory _inventory;
+    private WarChiefInventory _inventory;
 
     public Transform moveToPoint;
 

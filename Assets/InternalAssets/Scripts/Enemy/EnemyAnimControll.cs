@@ -12,7 +12,7 @@ public class EnemyAnimControll : MonoBehaviour
         }
         else
         {
-            GetComponentInParent<GostLogic>().Death();
+            GetComponentInParent<WarChief>().Death();
         }
     }
 

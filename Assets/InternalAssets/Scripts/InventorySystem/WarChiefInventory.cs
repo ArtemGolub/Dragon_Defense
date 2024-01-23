@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GostInventory : MonoBehaviour
+public class WarChiefInventory : MonoBehaviour
 {
-    public static GostInventory instance;
+    public static WarChiefInventory instance;
     
     private Inventory inventory = new Inventory();
     public List<Transform> inventoryPositions;

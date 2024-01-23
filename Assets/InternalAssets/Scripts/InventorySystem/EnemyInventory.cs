@@ -22,9 +22,9 @@ public class EnemyInventory : MonoBehaviour
     public void GetItemFromGost()
     {
         if (gotItem) return;
-        if(GostInventory.instance == null) return;
+        if(WarChiefInventory.instance == null) return;
         
-        GostInventory.instance.SendItem(inventory, inventoryPosition);
+        WarChiefInventory.instance.SendItem(inventory, inventoryPosition);
         GetComponentInChildren<Animator>().SetBool("isHaveItem", true);
         gotItem = true;
     }

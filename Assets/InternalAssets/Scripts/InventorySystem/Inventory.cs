@@ -51,11 +51,11 @@ public class Inventory
         if (items.Count <= 0)
         {
             myObject.GetComponentInChildren<Animator>().SetBool("isMove", true);
-            myObject.GetComponent<GostLogic>().StartMovement();
+            myObject.GetComponent<WarChief>().StartMovement();
             return;
         }
          inventory.Items.Add(items[0].ID, items[0]);
-         AddItem(items[0].ID, items[0], myObject.GetComponent<GostInventory>().inventoryPositions);
+         AddItem(items[0].ID, items[0], myObject.GetComponent<WarChiefInventory>().inventoryPositions);
         // PlaceItem(myObject.GetComponent<GostInventory>().inventoryPositions, items[0]);
         items.Remove(items[0]);
     }

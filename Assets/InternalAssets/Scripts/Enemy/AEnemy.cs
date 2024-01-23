@@ -50,7 +50,7 @@ public abstract class AEnemy : MonoBehaviour, IEnemy
         transform.position = WayPointsManager.Instance.spawnPoint.transform.position;
     }
 
-    public void Finished()
+    public void LastPointAchived()
     {
         EventManager.instance.OnRemoveWinPoints(DamageValue);
         FindObjectOfType<BossInventory>().GetAllItems(GetComponent<EnemyInventory>().inventory);

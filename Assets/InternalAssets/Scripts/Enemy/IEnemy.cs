@@ -16,5 +16,5 @@ public interface IEnemy
 
     void UnitInit();
 
-    void Finished();
+    void LastPointAchived();
 }

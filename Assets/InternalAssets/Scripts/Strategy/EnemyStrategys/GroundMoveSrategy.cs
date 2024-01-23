@@ -42,7 +42,7 @@ public class GroundMoveSrategy : IMoveStrategy
 
     public void LastPointAchived(AIPath agent)
     {
-        agent.GetComponent<IEnemy>().Finished();
+        agent.GetComponent<IEnemy>().LastPointAchived();
         agent.isStopped = true;
     }
 
